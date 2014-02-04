@@ -4,17 +4,18 @@
 /// \author Douglas Davis < douglasdavis@utexas.edu >
 //////////////////////////////////////////////////////////////////////
 
-/*! \mainpage The crmt_sim software package (v1.0)
+/*! \mainpage The crmt software package (v1.0)
  *
  * \section intro_sec Introduction
  *
- * crmt_sim is a simulation of the UTuT detector at UT Austin. <BR>
- * The package is dependent on ROOT (http://root.cern.ch/)
- * Tested versions of ROOT, v5-34-10 and later (as of 01/2014)
+ * crmt is a simulation and reconstruction package for the *
+ * UTuT detector at UT Austin. <BR>
+ * The package is dependent on ROOT (http://root.cern.ch/) and Boost libraries <BR>
+ * Tested versions of ROOT, v5-34-10 and later (as of 01/2014) <BR>
+ * Tested versions of Boost, v1.55 <BR>
  *
  * \section install_sec Installation and running
  *
- * See UTKLDocDB-doc-780 for a description of this software <BR>
  * <BR>
  * === To compile with CMake === <BR>
  * $ mkdir build <BR>
@@ -27,9 +28,6 @@
  * execute with: <BR>
  * $ bin/crmt <BR>
  * usage will be displayed <BR>
- * <BR>
- * === Configuration file setting === <BR>
- * See above DocDB entry for description <BR>
  * <BR>
  * === Tested Compilers === <BR>
  * * LLVM/Clang 3.3 on OS X <BR>
