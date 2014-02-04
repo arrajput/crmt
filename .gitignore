@@ -1,0 +1,8 @@
+*.so
+*.o
+crmt
+*.dylib
+*~
+build
+bin
+lib
