@@ -67,9 +67,9 @@ void Viewer::fill_TGs() {
 
   //Do hit points, make their TGraphErrors*
   
-  for (int k=0; k<fHitPoints.first.first.size();++k)
+  for (unsigned int k=0; k<fHitPoints.first.first.size();++k)
     tgHitPoints.first->SetPoint(k,fHitPoints.first.second[k],fHitPoints.first.first[k]);
-  for (int k=0; k<fHitPoints.second.first.size();++k)
+  for (unsigned int k=0; k<fHitPoints.second.first.size();++k)
     tgHitPoints.second->SetPoint(k,fHitPoints.second.second[k],fHitPoints.second.first[k]);
 			 
 }

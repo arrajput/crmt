@@ -33,7 +33,7 @@ std::pair<Line,Line> Detector::recon_event(std::map<int, std::vector<int> >& eve
     }
   }
   
-  bool goody_mob[2];
+  bool goody_mob[2] = { false };
   if(good){
     
     goody_mob[0] = fLines.first.do_track_reco(fModules[1]->get_Tracks(),

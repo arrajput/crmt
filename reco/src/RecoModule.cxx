@@ -181,7 +181,7 @@ void RecoModule::fill_fibers(){
    for (auto tb: fHitFibers){
     if( tb.first == 1 ) top = false;
     Fiber f;
-    for(int tt=0;tt<(tb.second).size();++tt){
+    for(unsigned int tt=0;tt<(tb.second).size();++tt){
       f.set_id(tb.second.at(tt));
 
       get_location(f.id(),&x,&y,top);
@@ -281,7 +281,7 @@ void RecoModule::attach()
   //std::vector<Track>::iterator lasttrack  = fTracks.end();
   size_t counter=0;
   while(track != fTracks.begin() + fTracks.size()){
-    if( track - fTracks.begin() == fTracks.size()) 
+    if( unsigned(track - fTracks.begin()) == fTracks.size()) 
       break;
     found = false;
     for(auto fibs : track->fibers()){
