@@ -41,13 +41,13 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <algorithm>
-#include "sim/include/evd.h"
-#include "sim/include/ev3d.h"
-#include "sim/include/evg.h"
-#include "reco/include/Line.h"
-#include "reco/include/FileManager.h"
-#include "reco/include/Detector.h"
-#include "reco/include/Viewer.h"
+#include "evd.h"
+#include "ev3d.h"
+#include "evg.h"
+#include "Line.h"
+#include "FileManager.h"
+#include "Detector.h"
+#include "Viewer.h"
 #include "TLatex.h"
 #include "TStyle.h"
 #include "VStyle.h"
@@ -108,7 +108,6 @@ int main(int argc, char *argv[])
 	fm->fill_event_tree(recon_data,i);
 	good_cnt++;
       }
-      std::cout << "i: " << i << ", good: " << good_cnt <<std::endl;fflush(stdout);
     }
     fm->finish();
   }
