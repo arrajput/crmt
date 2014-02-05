@@ -1,5 +1,5 @@
 {
-  TFile *the_file = new TFile("../output/ten2.root","READ");
+  TFile *the_file = new TFile("../output/sdf.root","READ");
   TTree *the_tree = (TTree*)the_file->Get("SimulationTree");
   bool Coincidence;
   bool IdentifierHit[4];
