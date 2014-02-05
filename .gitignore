@@ -6,3 +6,4 @@ crmt
 build
 bin
 lib
+*.root

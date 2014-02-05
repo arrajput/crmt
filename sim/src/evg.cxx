@@ -530,7 +530,7 @@ namespace ev {
   void evg::InitCoupleMap()
   {
     std::ifstream CouplingFile;
-    CouplingFile.open("config/coupled_fibers.dat");
+    CouplingFile.open("sim/config/coupled_fibers.dat");
     int f0, f1, f2, f3, f4, f5, f6, f7;
     int counter = 0;
     while ( CouplingFile >> f0 >> f1 >> f2
@@ -612,15 +612,15 @@ namespace ev {
     while (in_file >> left >> right)
       fRemapFiberTop.push_back(std::make_pair(left,right));
     in_file.close();
-    in_file.open("config/remap_fibers_bot.dat");
+    in_file.open("sim/config/remap_fibers_bot.dat");
     while (in_file >> left >> right)
       fRemapFiberBot.push_back(std::make_pair(left,right));
     in_file.close();
-    in_file.open("config/pixel_to_pin_top.dat");
+    in_file.open("sim/config/pixel_to_pin_top.dat");
     while (in_file >> left >> right)
       fPixelToPinTop.push_back(std::make_pair(left,right));
     in_file.close();
-    in_file.open("config/pixel_to_pin_bot.dat");
+    in_file.open("sim/config/pixel_to_pin_bot.dat");
     while (in_file >> left >> right)
       fPixelToPinBot.push_back(std::make_pair(left,right));
   }
