@@ -33,14 +33,20 @@ std::pair<Line,Line> Detector::recon_event(std::map<int, std::vector<int> >& eve
     }
   }
   
+  bool goody_mob[2];
   if(good){
-    fLines.first.do_track_reco(fModules[1]->get_Tracks(),
-			       fModules[3]->get_Tracks(),
-			       fGap); //XZ
-    fLines.second.do_track_reco(fModules[0]->get_Tracks(),
-				fModules[2]->get_Tracks(),
-				fGap); //YZ
+    
+    goody_mob[0] = fLines.first.do_track_reco(fModules[1]->get_Tracks(),
+					      fModules[3]->get_Tracks(),
+					      fGap); //XZ
+    goody_mob[1] = fLines.second.do_track_reco(fModules[0]->get_Tracks(),
+					       fModules[2]->get_Tracks(),
+					       fGap); //YZ
   }
+  
+  if (!goody_mob[0] || !goody_mob[1])
+    good = false;
+ 
   
   return fLines;
 

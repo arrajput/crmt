@@ -6,12 +6,15 @@ Line::Line(bool isXZ){
 
 Line::~Line(){}
 
-void Line::do_track_reco(std::vector<Track> tracks_top,std::vector<Track> tracks_bot,double& gap){
+bool Line::do_track_reco(std::vector<Track> tracks_top,std::vector<Track> tracks_bot,double& gap){
   
   fGap = gap;
   fTracks = std::make_pair(tracks_top,tracks_bot);
   fit_tracks();
-  choose_best();
+  if(!choose_best())
+    return false;
+
+  return true;
 
 }
 
@@ -58,11 +61,12 @@ void Line::fit_tracks(){
 
 }
 
-void Line::choose_best(){
+bool Line::choose_best(){
   //trying to use a lambda function to sort to line with highest Pvalue
   //  std::sort(fFits.begin(), fFits.end(),
   //[](TF1 const & a, TF1 const &b){return a.GetChisquare() < b.GetChisquare();});
   //ok it didn't work
+  fBestLine = new TF1();
   double _redchi = 100000.;
   double _local_redchi;
   int cnt = 0;
@@ -72,12 +76,16 @@ void Line::choose_best(){
     if (_local_redchi < _redchi){
       fLowCnt = cnt;
       _redchi = _local_redchi;
-      fBestLine = *line;
+      //     fBestLine = *line;
+      fBestLine = line;
     }
     cnt++;
   }
   
   
+  if (fFits.size() == 0)
+    return false;
+
   for (auto &top_track: fTracks.first)
     if( top_track.id() == fFittedTrack[fLowCnt].first)
       for (auto& bot_track: fTracks.second)
@@ -85,14 +93,14 @@ void Line::choose_best(){
 	  fBestTracks = std::make_pair(top_track,bot_track);	
   
   
-  fSlope    = fBestLine.GetParameter(1);
-  fSlopeErr = fBestLine.GetParError(1);
+  fSlope    = fBestLine->GetParameter(1);
+  fSlopeErr = fBestLine->GetParError(1);
 
-  fYinter   = fBestLine.GetParameter(0);
-  fYinterErr= fBestLine.GetParError(1);
+  fYinter   = fBestLine->GetParameter(0);
+  fYinterErr= fBestLine->GetParError(1);
   
-  fChi      = fBestLine.GetChisquare();
-  fNdf      = fBestLine.GetNDF();
+  fChi      = fBestLine->GetChisquare();
+  fNdf      = fBestLine->GetNDF();
   fRChi     = fChi/fNdf;
   fPvalue   = TMath::Prob(fChi,fNdf);
    
@@ -100,10 +108,10 @@ void Line::choose_best(){
   fAngleErr = fabs(1/(1+pow(fSlopeErr,2))*fSlopeErr);
   
   
-  
-  
   fCosAngle = cos(fAngle);
- 
+
+  return true;
+  
 }
 
 void Line::clear_lines(){  

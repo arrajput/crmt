@@ -32,7 +32,7 @@ private:
   
 
   std::pair<Track,Track> fBestTracks;
-  TF1 fBestLine;
+  TF1 *fBestLine;
   double fSlope;
   double fYinter;
   double fSlopeErr;
@@ -53,10 +53,10 @@ private:
 public:
   Line(bool isXZ);
   ~Line();
-  void do_track_reco(std::vector<Track> tracks_top,std::vector<Track> tracks_bot,double& gap);  
+  bool do_track_reco(std::vector<Track> tracks_top,std::vector<Track> tracks_bot,double& gap);  
   void fit_tracks();
   void clear_lines();
-  void choose_best();
+  bool choose_best();
 
   void dump();
   
