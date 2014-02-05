@@ -106,11 +106,12 @@ void FileManager::load_output_data(std::string file_name)
   fEventTree3D->Branch("fPhi",            &fPhi,         "Phi/D");
   fEventTree3D->Branch("fTheta",            &fTheta,         "Theta/D");
   fEventTree3D->Branch("fGap",            &fGap,         "Gap/D");
+  fEventTree3D->Branch("fSimID",          &fSimID,       "SimID/I");
   
 }
 
 
-void FileManager::fill_event_tree(std::pair<Line,Line>& lines) {
+void FileManager::fill_event_tree(std::pair<Line,Line>& lines, int simid) {
   
   fSlope_XZ       =  lines.first.slope();
   fSlopeErr_XZ    =  lines.first.slopeerr();
@@ -125,6 +126,7 @@ void FileManager::fill_event_tree(std::pair<Line,Line>& lines) {
   fAngleErr_XZ    =  lines.first.angleerr();
   fCosAngle_XZ    =  lines.first.cosangle();
   
+  fSimID = simid;
 
   //Slightly more painful way to write this data to a tree
   //XZ
@@ -369,4 +371,14 @@ void FileManager::set_gap_reco(){
   f3DTree->ResetBranchAddresses();
   
   
+}
+
+int FileManager::print_sim_event(){
+  int _simid;
+  f3DTree->SetBranchAddress("fSimID",&_simid);
+  f3DTree->GetEntry(fEvent);
+  
+  std::cout << "looing at sim event number: " << _simid << std::endl;
+  f3DTree->ResetBranchAddresses();
+  return -1;
 }

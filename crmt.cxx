@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
       auto raw_data   = fm->get_raw_data(i);
       auto recon_data = dd->recon_event(raw_data,good);
       if ( good ) {
-	fm->fill_event_tree(recon_data);
+	fm->fill_event_tree(recon_data,i);
 	good_cnt++;
       }
       std::cout << "i: " << i << ", good: " << good_cnt <<std::endl;fflush(stdout);
@@ -142,6 +142,7 @@ int main(int argc, char *argv[])
       Viewer *vv = new Viewer(gap,fm->get_slope_yinter(),fm->get_hit_points());
       vv->setup();
       fm->print_reco_results();
+      fm->print_sim_event();
       TApplication tapp("tapp",&argc,argv);
       TCanvas *can = new TCanvas("tgModules","tgModules",1300,570);
       TPad *padXZ = new TPad("padXZ","padXZ",0.0,0.0,0.5,1.0);

@@ -84,6 +84,9 @@ private:
   
   int fEvent;
   double fGap;
+
+  int fSimID;
+  
 public:
   FileManager();
   ~FileManager();
@@ -94,7 +97,7 @@ public:
   void load_output_data(std::string file_name);
   int get_n_events(){return fNRawEvents;}
   void set_raw_data_name(std::string name);
-  void fill_event_tree(std::pair<Line,Line>& lines);
+  void fill_event_tree(std::pair<Line,Line>& lines,int simid);
   void finish();
   void cleanup();
   
@@ -109,6 +112,8 @@ public:
   void set_gap_reco();
   double get_gap(){return fGap;}
   void print_reco_results();
+
+  int print_sim_event();
 };
 
 #endif
