@@ -256,7 +256,7 @@ namespace ev {
     for ( unsigned int ev = 0; ev < fNEvents; ev++ ) {
       fEventID = ev;
       geo::MCTrack *Muon = new geo::MCTrack();
-      double InitialZ = 599 + fGap;
+      double InitialZ = 600 + fGap;
       fInitialZ = InitialZ;
       if ( fOriginUniformDist ) {
 	fInitialX = gRandom->Uniform(fOriginUniformDistMin,fOriginUniformDistMax);
@@ -355,29 +355,29 @@ namespace ev {
 	}
       }
       
-      bool Mod0Checker   = false;
-      bool Mod1Checker   = false;
-      bool Mod2Checker   = false;
-      bool Mod3Checker   = false;
+      bool Mod0Checker  = false;
+      bool Mod1Checker  = false;
+      bool Mod2Checker  = false;
+      bool Mod3Checker  = false;
       fIdentifierHit[0] = false;
       fIdentifierHit[1] = false;
       fIdentifierHit[2] = false;
       fIdentifierHit[3] = false;
       
-      int ident_counter[4] = {0};
+      bool ident_counter[4] = { false };
       for ( int i = 0; i < 64; i++ ) {
 	if ( fTrueMod0[i] )
-	  ident_counter[0]++;
+	  ident_counter[0] = true;
 	if ( fTrueMod1[i] )
-	  ident_counter[1]++;
+	  ident_counter[1] = true;
 	if ( fTrueMod2[i] )
-	  ident_counter[2]++;
+	  ident_counter[2] = true;
 	if ( fTrueMod3[i] )
-	  ident_counter[3]++;
+	  ident_counter[3] = true;
       }
 
       for ( int i = 0; i < 4; i++ )
-	if ( ident_counter[i] > 0 )
+	if ( ident_counter[i] )
 	  fIdentifierHit[i] = true;
       
       int top_counter = 0;
