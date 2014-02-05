@@ -9,16 +9,17 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
 
 ## -- boost
 find_package(Boost REQUIRED COMPONENTS program_options)
-include_directories(${Boost_INCLUDE_DIRS})
+include_directories("${Boost_INCLUDE_DIRS}")
 ## -- prepare ROOT and inc and lib dirs
 find_package(ROOT REQUIRED)
-include_directories(${ROOT_INC_DIR})
-link_directories(${ROOT_LIB_DIR})
+include_directories("${ROOT_INC_DIR}")
+link_directories("${ROOT_LIB_DIR}")
 ## -- prepare project include and lib dirs
-link_directories(${CMAKE_SOURCE_DIR}/lib)
+link_directories("${CMAKE_SOURCE_DIR}/lib")
 
-include_directories(${CMAKE_SOURCE_DIR}/sim/include)
-include_directories(${CMAKE_SOURCE_DIR}/reco/include)
+include_directories("/usr/include")
+include_directories("${CMAKE_SOURCE_DIR}/sim/include")
+include_directories("${CMAKE_SOURCE_DIR}/reco/include")
 
 add_subdirectory(reco)
 add_subdirectory(sim)

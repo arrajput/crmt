@@ -13,7 +13,7 @@ RecoModule::RecoModule(int id, double gap) {
   else
     fGap = 0;
 
-  getfiles("./input/pins.csv");
+  getfiles("reco/input/pins.csv");
   init_module();
 
 }
