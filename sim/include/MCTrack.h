@@ -5,8 +5,8 @@
 /// \author Douglas Davis < douglasdavis@utexas.edu >
 //////////////////////////////////////////////////////////////////////
 
-#ifndef LINE_H
-#define LINE_H
+#ifndef MCTRACK_H
+#define MCTRACK_H
 
 #include <cmath>
 #include <iostream>

@@ -108,7 +108,7 @@ namespace ev {
   void evg::ReadParameters()
   {
     std::ifstream ConfigFile;
-    ConfigFile.open("Parameters.cfg");
+    ConfigFile.open("SimParameters.cfg");
     std::string label;
     double param;
     std::vector<double> param_vec;
@@ -143,7 +143,7 @@ namespace ev {
     ConfigFile.close();
 
     std::ifstream TestVolumeConfigFile;
-    TestVolumeConfigFile.open("TestVolume.cfg");
+    TestVolumeConfigFile.open("SimTestVolume.cfg");
     std::string type, temp;
     int on_off, defo;
     double radius, length, width, height, x0, y0, z0;
