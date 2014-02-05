@@ -102,13 +102,13 @@ int main(int argc, char *argv[])
     int  good_cnt = 0;
 
     for ( int i = 0; i < nevents; ++i ) {
-      std::cout << "i: " << i << std::endl;
       auto raw_data   = fm->get_raw_data(i);
       auto recon_data = dd->recon_event(raw_data,good);
       if ( good ) {
 	fm->fill_event_tree(recon_data);
 	good_cnt++;
       }
+      std::cout << "i: " << i << ", good: " << good_cnt <<std::endl;fflush(stdout);
     }
     fm->finish();
   }
