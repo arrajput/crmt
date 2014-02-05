@@ -100,7 +100,9 @@ int main(int argc, char *argv[])
     Detector *dd = new Detector(gap);
     bool good     = false;
     int  good_cnt = 0;
+
     for ( int i = 0; i < nevents; ++i ) {
+      std::cout << "i: " << i << std::endl;
       auto raw_data   = fm->get_raw_data(i);
       auto recon_data = dd->recon_event(raw_data,good);
       if ( good ) {

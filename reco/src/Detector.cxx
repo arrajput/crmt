@@ -20,7 +20,7 @@ std::pair<Line,Line> Detector::recon_event(std::map<int, std::vector<int> >& eve
   
   good = false;
   for(auto module : eventdata){
-    if(fModules[module.first]->check_event(module.second)) {
+    if(fModules[module.first]->check_event(module.second) && eventdata.size() == 4) {
       fModules[module.first]->find_hit_fibers(module.second);
       fModules[module.first]->fill_fibers();
       fModules[module.first]->clusterize();
