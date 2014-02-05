@@ -107,7 +107,6 @@ int main(int argc, char *argv[])
 	fm->fill_event_tree(recon_data);
 	good_cnt++;
       }
-      std::cout << "before finish" << std::endl;
     }
     fm->finish();
   }

@@ -60,38 +60,38 @@ void Geometry::set_coordinates()
     }
    }
    
-   printf("f\n");
-   if(fId == 0.0){
-     std::ofstream myfile;
-     myfile.open ("geometry0.dat");
-     for(int i=0;i<4;i++)
-       for(int j=0;j<64;++j)
-	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
-     myfile.close();  
-   }
- if(fId == 1.0){
-     std::ofstream myfile;
-     myfile.open ("geometry1.dat");
-     for(int i=0;i<4;i++)
-       for(int j=0;j<64;++j)
-	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
-     myfile.close();  
-   }
- if(fId == 2.0){
-     std::ofstream myfile;
-     myfile.open ("geometry2.dat");
-     for(int i=0;i<4;i++)
-       for(int j=0;j<64;++j)
-	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
-     myfile.close();  
-   }
- if(fId == 3.0){
-     std::ofstream myfile;
-     myfile.open ("geometry3.dat");
-     for(int i=0;i<4;i++)
-       for(int j=0;j<64;++j)
-	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
-     myfile.close();  
-   }
+ //   printf("f\n");
+ //   if(fId == 0.0){
+ //     std::ofstream myfile;
+ //     myfile.open ("geometry0.dat");
+ //     for(int i=0;i<4;i++)
+ //       for(int j=0;j<64;++j)
+ // 	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
+ //     myfile.close();  
+ //   }
+ // if(fId == 1.0){
+ //     std::ofstream myfile;
+ //     myfile.open ("geometry1.dat");
+ //     for(int i=0;i<4;i++)
+ //       for(int j=0;j<64;++j)
+ // 	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
+ //     myfile.close();  
+ //   }
+ // if(fId == 2.0){
+ //     std::ofstream myfile;
+ //     myfile.open ("geometry2.dat");
+ //     for(int i=0;i<4;i++)
+ //       for(int j=0;j<64;++j)
+ // 	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
+ //     myfile.close();  
+ //   }
+ // if(fId == 3.0){
+ //     std::ofstream myfile;
+ //     myfile.open ("geometry3.dat");
+ //     for(int i=0;i<4;i++)
+ //       for(int j=0;j<64;++j)
+ // 	 myfile << fLocation[i][j].first << "," << fLocation[i][j].second << std::endl;
+ //     myfile.close();  
+ //   }
    
 }
