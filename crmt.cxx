@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
   FileManager *fm = new FileManager();
   namespace po = boost::program_options;
-  po::options_description desc("\ncrmt Options.\n\nExample generation:\nTo generate a_file.root with 10000 events:\n  bin/crmt --generate a_file.root --num-events 10000\nTo display the true event display for file output/a_file.root event 53:\n  bin/crmt --display output/a_file.root --true --event-id 53\n\nList of options");
+  po::options_description desc("\ncrmt Options.\n\nExample generation:\nTo generate a_file.root with 10000 events:\n  bin/crmt --generate a_file.root --num-events 10000\nTo display the true event display for file output/a_file.root event 53:\n  bin/crmt --display output/a_file.root --true --event-id 53\nExample reconstruction:\nTo reconstruct a_file.root:\n  bin/crmt -r output/a_file.root\nTo view reconstructed event display for a_file.root event 53:\n  bin/crmt -d output/recodata.root -R -e 53\n\nList of options");
   desc.add_options()
     ("help,h","Print help message")
     ("generate,g",po::value<std::string>(),
