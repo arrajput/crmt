@@ -111,7 +111,7 @@ void FileManager::load_output_data(std::string file_name)
 }
 
 
-void FileManager::fill_event_tree(std::pair<Line,Line>& lines, int simid) {
+void FileManager::fill_event_tree(const std::pair<Line,Line>& lines, int simid) {
   
   fSlope_XZ       =  lines.first.slope();
   fSlopeErr_XZ    =  lines.first.slopeerr();
@@ -130,22 +130,22 @@ void FileManager::fill_event_tree(std::pair<Line,Line>& lines, int simid) {
 
   //Slightly more painful way to write this data to a tree
   //XZ
-  for (auto& fiber: lines.first.get_best_tracks().first.fibers()){
+  for (const auto& fiber : lines.first.get_best_tracks().first.fibers()){
     fFibsXZX.push_back(fiber.coords().first);
     fFibsXZY.push_back(fiber.coords().second);
   }
-  for (auto& fiber: lines.first.get_best_tracks().second.fibers()){
+  for (const auto& fiber : lines.first.get_best_tracks().second.fibers()){
     fFibsXZX.push_back(fiber.coords().first);
     fFibsXZY.push_back(fiber.coords().second);
   }
   
   //YZ
   
-  for (auto& fiber: lines.second.get_best_tracks().first.fibers()){
+  for (const auto& fiber : lines.second.get_best_tracks().first.fibers()){
     fFibsYZX.push_back(fiber.coords().first);
     fFibsYZY.push_back(fiber.coords().second);
   }
-  for (auto& fiber: lines.second.get_best_tracks().second.fibers()){
+  for (const auto& fiber : lines.second.get_best_tracks().second.fibers()){
     fFibsYZX.push_back(fiber.coords().first);
     fFibsYZY.push_back(fiber.coords().second);
   }

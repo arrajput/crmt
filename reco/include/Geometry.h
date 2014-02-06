@@ -23,15 +23,17 @@ private:
 
 
 public:
+
   Geometry(const double &id,const double &gap);
-  ~Geometry();
+  virtual ~Geometry();
   
   void set_coordinates();
   void dump();
-  std::pair<double,double> location(int a, int b){return fLocation[a][b];}
 
-  const double get_HalfHeight(){return fHalfHeight;}
-  const double get_Width(){return fWidth;}
+  inline const std::pair<double,double> location(const int& a, const int& b) const { return fLocation[a][b]; }
+
+  inline const double get_HalfHeight() const { return fHalfHeight; }
+  inline const double get_Width()      const { return fWidth;      }
   
 };
 

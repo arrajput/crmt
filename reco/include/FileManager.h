@@ -89,15 +89,14 @@ private:
   
 public:
   FileManager();
-  ~FileManager();
+  virtual ~FileManager();
   
   //Do Reco
   std::string to_string(char let, int id);
   std::map<int, std::vector<int> > get_raw_data(int event);
   void load_output_data(std::string file_name);
-  int get_n_events(){return fNRawEvents;}
   void set_raw_data_name(std::string name);
-  void fill_event_tree(std::pair<Line,Line>& lines,int simid);
+  void fill_event_tree(const std::pair<Line,Line>& lines,int simid);
   void finish();
   void cleanup();
   
@@ -110,10 +109,13 @@ public:
   
   void set_gap_sim();
   void set_gap_reco();
-  double get_gap(){return fGap;}
   void print_reco_results();
 
   int print_sim_event();
+
+  inline const double get_gap()      const { return fGap;        }
+  inline const int    get_n_events() const { return fNRawEvents; }
+
 };
 
 #endif

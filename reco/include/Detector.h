@@ -17,7 +17,7 @@ private:
 
 public:
   Detector(double gap);
-  ~Detector();
+  virtual ~Detector();
   
   void init_modules();
   std::pair<Line,Line> recon_event(std::map<int, std::vector<int> >& eventdata,bool& good); 

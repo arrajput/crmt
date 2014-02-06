@@ -26,15 +26,12 @@ private:
   
 public:
   Track();
-  ~Track();
+  virtual ~Track();
   
   void add_fiber(Fiber a);
   void set_id(int a);
 
-  int id() {return fid;}
   bool contains(Fiber a);
-  int size(){return fFibers.size();}
-  std::vector<Fiber> fibers(){return fFibers;}
   void dump();
   //void fit();
   //void calculate_angle();
@@ -42,7 +39,12 @@ public:
   void chosen(bool a){fChosen = a;};
   void hasoneeach(bool a);
   //bool is_chosen(){return fChosen;}
-  bool is_hasoneeach(){return fHasOneEach;}
+
+  inline const int                id()            const { return fid;            }
+  inline const int                size()          const { return fFibers.size(); }
+  inline const std::vector<Fiber> fibers()        const { return fFibers;        }
+  inline const bool               is_hasoneeach() const { return fHasOneEach;    }
+
 };
 
 #endif

@@ -52,7 +52,7 @@ private:
   
 public:
   Line(bool isXZ);
-  ~Line();
+  virtual ~Line();
   bool do_track_reco(std::vector<Track> tracks_top,std::vector<Track> tracks_bot,double& gap);  
   void fit_tracks();
   void clear_lines();
@@ -60,22 +60,19 @@ public:
 
   void dump();
   
-  double slope()    {return fSlope;}
-  double yinter()   {return fYinter;}
-  double slopeerr()    {return fSlopeErr;}
-  double yintererr()   {return fYinterErr;}
-  double angle()    {return fAngle;}
-  double angleerr()    {return fAngleErr;}
-  double chi()      {return fChi;}
-  double rchi()      {return fRChi;}
-  double ndf()      {return fNdf;}
-
+  inline const double slope()     const { return fSlope;     }
+  inline const double yinter()    const { return fYinter;    }
+  inline const double slopeerr()  const { return fSlopeErr;  }
+  inline const double yintererr() const { return fYinterErr; }
+  inline const double angle()     const { return fAngle;     }
+  inline const double angleerr()  const { return fAngleErr;  }
+  inline const double chi()       const { return fChi;       }
+  inline const double rchi()      const { return fRChi;      }
+  inline const double ndf()       const { return fNdf;       }
+  inline const double pvalue()    const { return fPvalue;    }
+  inline const double cosangle()  const { return fCosAngle; }
   
-  double pvalue()   {return fPvalue;}
-  double cosangle() {return fCosAngle;}
-    
-  
-  std::pair<Track,Track> get_best_tracks(){return fBestTracks;}
+  inline const std::pair<Track,Track> get_best_tracks() const { return fBestTracks; }
   
 };
 

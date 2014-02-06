@@ -23,27 +23,26 @@ private:
   
 public:
   Fiber();
-  ~Fiber();
+  virtual ~Fiber();
   
-
   void set_id(int a);
   void set_x(double a);
   void set_y(double a);
   void set_pin(int a);
   void set_pixel(int a);
-  
-  std::pair<double,double> get_coords(){return fCoords;}
-  
-  int id()       {return fid;}
-  double x()     {return fx;}
-  double y()     {return fy;}
-  int pin()   {return fpin;}
-  int pixel() {return fpixel;}   
-  
   void dump();
   bool near(Fiber b);
   void set_coords(std::pair<double,double> coords);
-  std::pair<double,double> coords(){return fCoords;}
+  
+  
+  inline const int    id()    const { return fid;    }
+  inline const double x()     const { return fx;     }
+  inline const double y()     const { return fy;     }
+  inline const int    pin()   const { return fpin;   }
+  inline const int    pixel() const { return fpixel; }   
+  
+  inline const std::pair<double,double> coords()     const { return fCoords; }
+  inline const std::pair<double,double> get_coords() const { return fCoords; }
 };
 
 #endif

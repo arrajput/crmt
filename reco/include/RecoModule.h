@@ -77,7 +77,7 @@ public:
   // holy shit i'm a bad programmer
   // need only return the best track and the angle associated with it
   
-  std::vector<Track> get_Tracks(){return fTracks;}
+  inline const std::vector<Track> get_Tracks() const { return fTracks; }
 
 
   bool one_each_layer(Track trakk);
