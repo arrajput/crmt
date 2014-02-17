@@ -25,4 +25,4 @@ add_subdirectory(reco)
 add_subdirectory(sim)
 
 add_executable(crmt crmt.cxx)
-target_link_libraries(crmt ${ROOT_LIBS} simEv  recoParticle recoDisplay ${Boost_PROGRAM_OPTIONS_LIBRARY} simGeo recoBase)
+target_link_libraries(crmt ${ROOT_LIBS} simBase  recoParticle recoDisplay ${Boost_PROGRAM_OPTIONS_LIBRARY} simGeo recoBase)
