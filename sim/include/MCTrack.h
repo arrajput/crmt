@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////
 /// \class MCTrack
 /// \file MCTrack.h
-/// \brief A class which describes the geometric muon line in 3D
+/// \brief A class which describes the muon track in 3D
 /// \author Douglas Davis < douglasdavis@utexas.edu >
 //////////////////////////////////////////////////////////////////////
 
@@ -11,7 +11,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace geo {
+namespace sim {
 
   class MCTrack {
     
@@ -80,22 +80,22 @@ namespace geo {
 
 }
 
-inline const double geo::MCTrack::Tx()      const { return fTx;      }
-inline const double geo::MCTrack::Ty()      const { return fTy;      }
-inline const double geo::MCTrack::Tz()      const { return fTz;      }
-inline const double geo::MCTrack::X0()      const { return fX0;      }
-inline const double geo::MCTrack::Y0()      const { return fY0;      }
-inline const double geo::MCTrack::Z0()      const { return fZ0;      }
-inline const double geo::MCTrack::BottomX() const { return fBottomX; }
-inline const double geo::MCTrack::BottomY() const { return fBottomY; }
-inline const double geo::MCTrack::BottomZ() const { return fBottomZ; }
-inline const double geo::MCTrack::Theta()   const { return fTheta;   }
-inline const double geo::MCTrack::Phi()     const { return fPhi;     }
-inline const double geo::MCTrack::AngleXZ() const { return fAngleXZ; }
-inline const double geo::MCTrack::AngleYZ() const { return fAngleYZ; }
-inline const double geo::MCTrack::SlopeXZ() const { return fSlopeXZ; }
-inline const double geo::MCTrack::SlopeYZ() const { return fSlopeYZ; }
-inline const double geo::MCTrack::YintXZ()  const { return fYintXZ;  }
-inline const double geo::MCTrack::YintYZ()  const { return fYintYZ;  }
+inline const double sim::MCTrack::Tx()      const { return fTx;      }
+inline const double sim::MCTrack::Ty()      const { return fTy;      }
+inline const double sim::MCTrack::Tz()      const { return fTz;      }
+inline const double sim::MCTrack::X0()      const { return fX0;      }
+inline const double sim::MCTrack::Y0()      const { return fY0;      }
+inline const double sim::MCTrack::Z0()      const { return fZ0;      }
+inline const double sim::MCTrack::BottomX() const { return fBottomX; }
+inline const double sim::MCTrack::BottomY() const { return fBottomY; }
+inline const double sim::MCTrack::BottomZ() const { return fBottomZ; }
+inline const double sim::MCTrack::Theta()   const { return fTheta;   }
+inline const double sim::MCTrack::Phi()     const { return fPhi;     }
+inline const double sim::MCTrack::AngleXZ() const { return fAngleXZ; }
+inline const double sim::MCTrack::AngleYZ() const { return fAngleYZ; }
+inline const double sim::MCTrack::SlopeXZ() const { return fSlopeXZ; }
+inline const double sim::MCTrack::SlopeYZ() const { return fSlopeYZ; }
+inline const double sim::MCTrack::YintXZ()  const { return fYintXZ;  }
+inline const double sim::MCTrack::YintYZ()  const { return fYintYZ;  }
 
 #endif

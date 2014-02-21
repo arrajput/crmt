@@ -56,7 +56,7 @@
 int main(int argc, char *argv[])
 {
 
-  FileManager *fm = new FileManager();
+  reco::FileManager *fm = new reco::FileManager();
   namespace po = boost::program_options;
   po::options_description desc("\ncrmt Options.\n\nExample generation:\nTo generate a_file.root with 10000 events:\n  bin/crmt --generate a_file.root --num-events 10000\nTo display the true event display for file output/a_file.root event 53:\n  bin/crmt --display output/a_file.root --true --event-id 53\nExample reconstruction:\nTo reconstruct a_file.root:\n  bin/crmt -r output/a_file.root\nTo view reconstructed event display for a_file.root event 53:\n  bin/crmt -d output/recodata.root -R -e 53\n\nList of options");
   desc.add_options()
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
   
   else if ( vm.count("generate") ) {
     if ( vm.count("num-events") ) {
-      ev::evg event_set(vm["generate"].as<std::string>(),
+      sim::evg event_set(vm["generate"].as<std::string>(),
 			vm["num-events"].as<int>());
       event_set.RunEvents();
     }
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
     nevents = fm->get_n_events();
     auto gap = fm->get_gap();
     fm->load_output_data("output/recodata.root");
-    Detector *dd = new Detector(gap);
+    reco::Detector *dd = new reco::Detector(gap);
     bool good     = false;
     int  good_cnt = 0;
 
@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
   else if ( vm.count("display") ) {
     if ( (vm.count("true") || vm.count("sim")) && vm.count("event-id") ) {
       TApplication tapp("tapp",&argc,argv);
-      ev::evd display;
+      sim::evd display;
       display.InitFile(vm["display"].as<std::string>(),
 		       vm["event-id"].as<int>());
       if ( vm.count("true") ) {
@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
       auto file_name_arg = vm["display"].as<std::string>();
       fm->setup_reco_viewer(file_name_arg,event);
       auto gap = fm->get_gap();
-      Viewer *vv = new Viewer(gap,fm->get_slope_yinter(),fm->get_hit_points());
+      reco::Viewer *vv = new reco::Viewer(gap,fm->get_slope_yinter(),fm->get_hit_points());
       vv->setup();
       fm->print_reco_results();
       fm->print_sim_event();

@@ -7,7 +7,7 @@
 #include <iostream>
 #include "Module.h"
 
-namespace geo {
+namespace sim {
 
   Module::Module() {}
 

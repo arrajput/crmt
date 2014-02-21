@@ -6,24 +6,27 @@
 #include "RecoModule.h"
 #include "Line.h"
 
+namespace reco {
 
-class Detector {
+  class Detector {
   
-private:
+  private:
   
-  std::vector<RecoModule*> fModules;
-  double fGap;
-  std::pair<Line,Line> fLines = std::make_pair(Line(true),Line(false));
+    std::vector<RecoModule*> fModules;
+    double fGap;
+    std::pair<reco::Line,reco::Line> fLines = std::make_pair(reco::Line(true),reco::Line(false));
 
-public:
-  Detector(double gap);
-  virtual ~Detector();
+  public:
+    Detector(double gap);
+    virtual ~Detector();
   
-  void init_modules();
-  std::pair<Line,Line> recon_event(std::map<int, std::vector<int> >& eventdata,bool& good); 
+    void init_modules();
+    std::pair<reco::Line,reco::Line> recon_event(std::map<int, std::vector<int> >& eventdata,bool& good); 
     
-  void clean_event();
+    void clean_event();
 
-};
+  };
+
+}
 
 #endif

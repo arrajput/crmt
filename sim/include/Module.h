@@ -11,7 +11,7 @@
 #include <map>
 #include <vector>
 
-namespace geo {
+namespace sim {
 
   class Module {
   
@@ -44,8 +44,8 @@ namespace geo {
   };
 }
 
-inline const std::map<int, std::pair<double,double> > geo::Module::GetMap()         const { return fFiberMap;    }
-inline const unsigned int                             geo::Module::GetModuleType()  const { return fModuleType;  } 
-inline const double                                   geo::Module::GetScintLength() const { return fScintLength; }
+inline const std::map<int, std::pair<double,double> > sim::Module::GetMap()         const { return fFiberMap;    }
+inline const unsigned int                             sim::Module::GetModuleType()  const { return fModuleType;  } 
+inline const double                                   sim::Module::GetScintLength() const { return fScintLength; }
 
 #endif

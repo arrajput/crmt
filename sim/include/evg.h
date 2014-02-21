@@ -19,7 +19,7 @@
 #include <fstream>
 #include <cmath>
 
-namespace ev {
+namespace sim {
 
   class evg {
   
@@ -108,10 +108,10 @@ namespace ev {
     std::vector<int>                   fHitPinsBot3; ///< contains hit pin ids (mod3 bottom pmt)
     std::map<int, std::vector<int> >   fFiberCouplingMap;
   
-    geo::Module                       *fMod0;
-    geo::Module                       *fMod1;
-    geo::Module                       *fMod2;
-    geo::Module                       *fMod3;
+    sim::Module                       *fMod0;
+    sim::Module                       *fMod1;
+    sim::Module                       *fMod2;
+    sim::Module                       *fMod3;
 
     double                             fScintWidth  = 10.4; ///< scintillator width
     double                             fScintHeight = 30.8; ///< scintillator height 
@@ -122,7 +122,7 @@ namespace ev {
     const double                       PI           = 4*atan(1.); ///< pi = 3.14159....
   
     TTree                             *fTestVolumeTree; ///< test volume tree
-    geo::TestVolume                   *fTestVolume;  ///< test volume object
+    sim::TestVolume                   *fTestVolume;  ///< test volume object
     std::string                        fTVType; ///< test volume type
     bool                               fTestVolumeOnOff; ///< test volume on/off
     bool                               fTVCoincidence; ///< test volume coincidence bool
@@ -154,7 +154,7 @@ namespace ev {
     void RunEvents();
 
     /// Checks to see if line intersected through extrusion cross section
-    inline bool Intersection(const double& FibI, const double& FibJ, const geo::MCTrack& function,
+    inline bool Intersection(const double& FibI, const double& FibJ, const sim::MCTrack& function,
 			     const bool& view_xz, const double& gap, const int& type);
 
     /// Initialized map of coupled fibers (reads file from config directory)
@@ -176,10 +176,10 @@ namespace ev {
     inline void ClearVecs();  
 
     /// Checks for intersection through spherical test volume in both planes
-    inline bool SphereIntersect(const geo::MCTrack& line, const geo::TestVolume& vol);
+    inline bool SphereIntersect(const sim::MCTrack& line, const sim::TestVolume& vol);
 
     /// Checks for intersection through box test volume in both planes
-    inline bool BoxIntersect(const geo::MCTrack& line, const geo::TestVolume& vol);
+    inline bool BoxIntersect(const sim::MCTrack& line, const sim::TestVolume& vol);
 
   };
 }

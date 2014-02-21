@@ -8,7 +8,7 @@
 #include <cmath>
 #include "MCTrack.h"
 
-namespace geo {
+namespace sim {
 
   MCTrack::MCTrack() {}
 

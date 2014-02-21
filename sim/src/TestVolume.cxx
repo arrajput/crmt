@@ -6,7 +6,7 @@
 
 #include "TestVolume.h"
 
-namespace geo {
+namespace sim {
   
   TestVolume::TestVolume() {}
   

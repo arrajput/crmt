@@ -10,7 +10,7 @@
 
 #include <iostream>
 
-namespace geo {
+namespace sim {
 
   class TestVolume {
     
@@ -55,12 +55,12 @@ namespace geo {
 
 }
 
-inline const double geo::TestVolume::GetLength() const { return fLength; }
-inline const double geo::TestVolume::GetWidth()  const { return fWidth;  }
-inline const double geo::TestVolume::GetHeight() const { return fHeight; }
-inline const double geo::TestVolume::GetRadius() const { return fRadius; }
-inline const double geo::TestVolume::GetXO()     const { return fXO;     }
-inline const double geo::TestVolume::GetYO()     const { return fYO;     }
-inline const double geo::TestVolume::GetZO()     const { return fZO;     }
+inline const double sim::TestVolume::GetLength() const { return fLength; }
+inline const double sim::TestVolume::GetWidth()  const { return fWidth;  }
+inline const double sim::TestVolume::GetHeight() const { return fHeight; }
+inline const double sim::TestVolume::GetRadius() const { return fRadius; }
+inline const double sim::TestVolume::GetXO()     const { return fXO;     }
+inline const double sim::TestVolume::GetYO()     const { return fYO;     }
+inline const double sim::TestVolume::GetZO()     const { return fZO;     }
 
 #endif

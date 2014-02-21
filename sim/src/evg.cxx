@@ -10,7 +10,7 @@
 #include "TRandom.h"
 #include "TF1.h"
 
-namespace ev {
+namespace sim {
 
   evg::evg() {}
 
@@ -169,7 +169,7 @@ namespace ev {
     if ( fTestVolumeOnOff ) {
       fTVType = type;
       if ( type == "box" ) {
-	fTestVolume = new geo::TestVolume(type,length,width,height);
+	fTestVolume = new sim::TestVolume(type,length,width,height);
 	fTVRadius   = 0;
 	fTVLength   = length;
 	fTVWidth    = width;
@@ -180,7 +180,7 @@ namespace ev {
 	fTVLength = 0;
 	fTVWidth  = 0;
 	fTVHeight = 0;
-	fTestVolume = new geo::TestVolume(type,radius);
+	fTestVolume = new sim::TestVolume(type,radius);
       }
       else { 
 	std::cout << "WARNING: Bad test volume shape definition." << std::endl;
@@ -242,10 +242,10 @@ namespace ev {
     InitCoupleMap();
     InitFiberPixelPinPairs();
     gRandom->SetSeed(0);
-    fMod0 = new geo::Module(0,fGap);
-    fMod1 = new geo::Module(1,fGap);
-    fMod2 = new geo::Module(2,fGap);
-    fMod3 = new geo::Module(3,fGap);
+    fMod0 = new sim::Module(0,fGap);
+    fMod1 = new sim::Module(1,fGap);
+    fMod2 = new sim::Module(2,fGap);
+    fMod3 = new sim::Module(3,fGap);
     std::map<int, std::pair<double,double> > Mod0Loc = fMod0->GetMap();
     std::map<int, std::pair<double,double> > Mod1Loc = fMod1->GetMap();
     std::map<int, std::pair<double,double> > Mod2Loc = fMod2->GetMap();
@@ -255,7 +255,7 @@ namespace ev {
     TF1 *cossq = new TF1("cossq","cos(x)*cos(x)",PI/2.,PI);
     for ( unsigned int ev = 0; ev < fNEvents; ev++ ) {
       fEventID = ev;
-      geo::MCTrack *Muon = new geo::MCTrack();
+      sim::MCTrack *Muon = new sim::MCTrack();
       double InitialZ = 600 + fGap;
       fInitialZ = InitialZ;
       if ( fOriginUniformDist ) {
@@ -304,7 +304,7 @@ namespace ev {
       if ( fAngleYZ < 0 )
 	fAngleYZ_RF = -1*(fabs(fAngleYZ) - PI);
       fTraj[0] = -1*Muon->Tx();                      /// We use a negative sign here because
-      fTraj[1] = -1*Muon->Ty();                      /// geo::MCTrack corresponds to upwards lines
+      fTraj[1] = -1*Muon->Ty();                      /// sim::MCTrack corresponds to upwards lines
       fTraj[2] = -1*Muon->Tz();                      /// where the detector computes downward lines
       fSlopeXZ = Muon->SlopeXZ();
       fSlopeYZ = Muon->SlopeYZ();
@@ -481,7 +481,7 @@ namespace ev {
 
   // __________________________________________________________________
 
-  bool evg::Intersection(const double& FibI, const double& FibJ, const geo::MCTrack& function, 
+  bool evg::Intersection(const double& FibI, const double& FibJ, const sim::MCTrack& function, 
 			 const bool& view_xz, const double& gap, const int& type) {
 
     double Slope, Yint;
@@ -774,7 +774,7 @@ namespace ev {
   }
   // __________________________________________________________________
 
-  bool evg::SphereIntersect(const geo::MCTrack& line, const geo::TestVolume& vol)
+  bool evg::SphereIntersect(const sim::MCTrack& line, const sim::TestVolume& vol)
   {
     double R     = vol.GetRadius();
   
@@ -798,7 +798,7 @@ namespace ev {
 
   // __________________________________________________________________
 
-  bool evg::BoxIntersect(const geo::MCTrack& line, const geo::TestVolume& vol)
+  bool evg::BoxIntersect(const sim::MCTrack& line, const sim::TestVolume& vol)
   {
     double SlopeXZ = line.SlopeXZ();
     double SlopeYZ = line.SlopeYZ();

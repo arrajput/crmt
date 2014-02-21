@@ -19,9 +19,9 @@
 #include "TBox.h"
 #include "evg.h"
 
-namespace ev {
+namespace sim {
 
-  class evd : public ev::evg {
+  class evd : public sim::evg {
 
   private:
     TFile            *fFile; ///< file to be read

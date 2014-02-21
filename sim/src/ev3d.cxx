@@ -46,10 +46,10 @@ void Draw3DGL(const std::string& file_name, const bool& true_view, const unsigne
   tv_tree->SetBranchAddress("Gap",&Gap);
   tv_tree->GetEntry(0);
 
-  geo::Module Mod0(0,Gap); auto Mod0Loc = Mod0.GetMap();
-  geo::Module Mod1(1,Gap); auto Mod1Loc = Mod1.GetMap();
-  geo::Module Mod2(2,Gap); auto Mod2Loc = Mod2.GetMap();
-  geo::Module Mod3(3,Gap); auto Mod3Loc = Mod3.GetMap();
+  sim::Module Mod0(0,Gap); auto Mod0Loc = Mod0.GetMap();
+  sim::Module Mod1(1,Gap); auto Mod1Loc = Mod1.GetMap();
+  sim::Module Mod2(2,Gap); auto Mod2Loc = Mod2.GetMap();
+  sim::Module Mod3(3,Gap); auto Mod3Loc = Mod3.GetMap();
   
   TGeoVolume *extrusions0[256];
   TGeoVolume *extrusions1[256];

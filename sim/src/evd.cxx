@@ -18,7 +18,7 @@
 #include "TPad.h"
 #include "TEllipse.h"
 
-namespace ev {
+namespace sim {
 
   evd::evd()
   {}
@@ -120,10 +120,10 @@ namespace ev {
   {
     fTree->GetEntry(fSelectedEventID);
     double gap = fGap;
-    geo::Module *mod0 = new geo::Module(0,gap);
-    geo::Module *mod1 = new geo::Module(1,gap);
-    geo::Module *mod2 = new geo::Module(2,gap);
-    geo::Module *mod3 = new geo::Module(3,gap);
+    sim::Module *mod0 = new sim::Module(0,gap);
+    sim::Module *mod1 = new sim::Module(1,gap);
+    sim::Module *mod2 = new sim::Module(2,gap);
+    sim::Module *mod3 = new sim::Module(3,gap);
     std::map<int, std::pair<double,double> > Mod0 = mod0->GetMap();
     std::map<int, std::pair<double,double> > Mod1 = mod1->GetMap();
     std::map<int, std::pair<double,double> > Mod2 = mod2->GetMap();
@@ -162,10 +162,10 @@ namespace ev {
     SetupTVs();
     fTree->GetEntry(fSelectedEventID);
     double gap = fGap;
-    geo::Module *mod0 = new geo::Module(0,gap);
-    geo::Module *mod1 = new geo::Module(1,gap);
-    geo::Module *mod2 = new geo::Module(2,gap);
-    geo::Module *mod3 = new geo::Module(3,gap);
+    sim::Module *mod0 = new sim::Module(0,gap);
+    sim::Module *mod1 = new sim::Module(1,gap);
+    sim::Module *mod2 = new sim::Module(2,gap);
+    sim::Module *mod3 = new sim::Module(3,gap);
     std::map<int, std::pair<double,double> > Mod0 = mod0->GetMap();
     std::map<int, std::pair<double,double> > Mod1 = mod1->GetMap();
     std::map<int, std::pair<double,double> > Mod2 = mod2->GetMap();
@@ -377,10 +377,10 @@ namespace ev {
     SetupTVs();
     fTree->GetEntry(fSelectedEventID);
     double gap = fGap;
-    geo::Module *mod0 = new geo::Module(0,gap);
-    geo::Module *mod1 = new geo::Module(1,gap);
-    geo::Module *mod2 = new geo::Module(2,gap);
-    geo::Module *mod3 = new geo::Module(3,gap);
+    sim::Module *mod0 = new sim::Module(0,gap);
+    sim::Module *mod1 = new sim::Module(1,gap);
+    sim::Module *mod2 = new sim::Module(2,gap);
+    sim::Module *mod3 = new sim::Module(3,gap);
     std::map<int, std::pair<double,double> > Mod0 = mod0->GetMap();
     std::map<int, std::pair<double,double> > Mod1 = mod1->GetMap();
     std::map<int, std::pair<double,double> > Mod2 = mod2->GetMap();
