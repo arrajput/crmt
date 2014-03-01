@@ -1,3 +1,10 @@
+///////////////////////////////////////////////////
+/// \class RecoModule
+/// \file RecoModule.h
+/// \brief
+/// \author V. Genty < vic.genty@gmail.com >
+///////////////////////////////////////////////////
+
 #ifndef RECOMODULE_H
 #define RECOMODULE_H
 

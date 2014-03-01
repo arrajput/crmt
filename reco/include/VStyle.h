@@ -1,3 +1,9 @@
+///////////////////////////////////////////////////
+/// \file VStyle.h
+/// \brief Style file for display
+/// \author V. Genty < vic.genty@gmail.com >
+///////////////////////////////////////////////////
+
 #include "TROOT.h"
 #include "TStyle.h"
 #include "TGaxis.h"

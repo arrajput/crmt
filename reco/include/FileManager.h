@@ -1,3 +1,10 @@
+///////////////////////////////////////////////////
+/// \class FileManager
+/// \file FileManager.h
+/// \brief
+/// \author V. Genty < vic.genty@gmail.com >
+///////////////////////////////////////////////////
+
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 

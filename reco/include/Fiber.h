@@ -1,3 +1,10 @@
+///////////////////////////////////////////////////
+/// \class Fiber
+/// \file Fiber.h
+/// \brief
+/// \author V. Genty < vic.genty@gmail.com >
+///////////////////////////////////////////////////
+
 #ifndef FIBER_H
 #define FIBER_H
 
@@ -15,14 +22,16 @@ namespace reco {
   class Fiber {
 
   private:
-    int fid;
-    double fx;
-    double fy;
+
+    int                      fid;
+    double                   fx;
+    double                   fy;
+    int                      fpixel;
+    int                      fpin;
     std::pair<double,double> fCoords;
-    int fpixel;
-    int fpin;  
   
   public:
+
     Fiber();
     virtual ~Fiber();
   
@@ -35,7 +44,6 @@ namespace reco {
     bool near(Fiber b);
     void set_coords(std::pair<double,double> coords);
   
-  
     inline const int    id()    const { return fid;    }
     inline const double x()     const { return fx;     }
     inline const double y()     const { return fy;     }
@@ -44,6 +52,7 @@ namespace reco {
   
     inline const std::pair<double,double> coords()     const { return fCoords; }
     inline const std::pair<double,double> get_coords() const { return fCoords; }
+
   };
 
 }
