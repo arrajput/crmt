@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
   else if ( vm.count("generate") ) {
     if ( vm.count("num-events") ) {
       sim::evg event_set(vm["generate"].as<std::string>(),
-			vm["num-events"].as<int>());
+			 vm["num-events"].as<int>());
       event_set.RunEvents();
     }
     else

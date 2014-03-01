@@ -23,9 +23,9 @@ namespace sim {
     double fX0;        ///< x initial position
     double fY0;        ///< y initial position
     double fZ0;        ///< z initial position
-    double fBottomX;  ///< bottom x point for drawing ev3d
-    double fBottomY;  ///< bottom y point for drawing ev3d
-    double fBottomZ;  ///< bottom z point for drawing ev3d
+    double fBottomX;   ///< bottom x point for drawing ev3d
+    double fBottomY;   ///< bottom y point for drawing ev3d
+    double fBottomZ;   ///< bottom z point for drawing ev3d
     double fTheta;     ///< theta, spherical zenith)
     double fPhi;       ///< phi, spherical polar)
     double fAngleXZ;   ///< xz projection zenith angle
