@@ -10,23 +10,28 @@
  *
  * crmt is a simulation and reconstruction package for the *
  * UTuT detector at UT Austin. <BR>
+ * The package is compiled with CMake <BR>
  * The package is dependent on ROOT (http://root.cern.ch/) and Boost libraries <BR>
+ * Tested versions of CMake, v2.8.xx <BR>
  * Tested versions of ROOT, v5-34-10 and later (as of 01/2014) <BR>
  * Tested versions of Boost, v1.55 <BR>
  *
  * \section install_sec Installation and running
- *
- * <BR>
- * === To compile with CMake === <BR>
- * $ mkdir build <BR>
- * $ cd build <BR>
- * $ cmake -DROOT_HOME=$ROOTSYS .. <BR>
- * $ make <BR>
+ * clone the git repository: <BR>
+ * > git clone http://github.com/dougphy/crmt.git <BR>
+ * > cd crmt <BR>
+ * export CRMT_DIR=$PWD <BR>
+ * === Compiling === <BR>
+ * > mkdir build <BR>
+ * > cd build <BR>
+ * > cmake -DROOT_HOME=$ROOTSYS $CRMT_DIR <BR>
+ * > make <BR>
  * <BR>
  * === Running === <BR>
- * (* return back to main directory (cd .. from previous step) *) <BR>
+ * return back to main directory with: <BR>
+ * > cd $CRMT_DIR
  * execute with: <BR>
- * $ bin/crmt <BR>
+ * > bin/crmt <BR>
  * usage will be displayed <BR>
  * <BR>
  * === Tested Compilers === <BR>
