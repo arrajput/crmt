@@ -58,44 +58,44 @@ namespace sim {
     /// Manually sets the yz projection angle
     inline void SetAngleYZ(const double& y);
 
-    const double Tx()      const;
-    const double Ty()      const;
-    const double Tz()      const;
-    const double X0()      const;
-    const double Y0()      const;
-    const double Z0()      const;
-    const double BottomX() const;
-    const double BottomY() const;
-    const double BottomZ() const;
-    const double Theta()   const;
-    const double Phi()     const;
-    const double AngleYZ() const;
-    const double AngleXZ() const;
-    const double SlopeXZ() const;
-    const double SlopeYZ() const;
-    const double YintXZ()  const;
-    const double YintYZ()  const;
+    double Tx()      const;
+    double Ty()      const;
+    double Tz()      const;
+    double X0()      const;
+    double Y0()      const;
+    double Z0()      const;
+    double BottomX() const;
+    double BottomY() const;
+    double BottomZ() const;
+    double Theta()   const;
+    double Phi()     const;
+    double AngleYZ() const;
+    double AngleXZ() const;
+    double SlopeXZ() const;
+    double SlopeYZ() const;
+    double YintXZ()  const;
+    double YintYZ()  const;
 
   };
 
 }
 
-inline const double sim::MCTrack::Tx()      const { return fTx;      }
-inline const double sim::MCTrack::Ty()      const { return fTy;      }
-inline const double sim::MCTrack::Tz()      const { return fTz;      }
-inline const double sim::MCTrack::X0()      const { return fX0;      }
-inline const double sim::MCTrack::Y0()      const { return fY0;      }
-inline const double sim::MCTrack::Z0()      const { return fZ0;      }
-inline const double sim::MCTrack::BottomX() const { return fBottomX; }
-inline const double sim::MCTrack::BottomY() const { return fBottomY; }
-inline const double sim::MCTrack::BottomZ() const { return fBottomZ; }
-inline const double sim::MCTrack::Theta()   const { return fTheta;   }
-inline const double sim::MCTrack::Phi()     const { return fPhi;     }
-inline const double sim::MCTrack::AngleXZ() const { return fAngleXZ; }
-inline const double sim::MCTrack::AngleYZ() const { return fAngleYZ; }
-inline const double sim::MCTrack::SlopeXZ() const { return fSlopeXZ; }
-inline const double sim::MCTrack::SlopeYZ() const { return fSlopeYZ; }
-inline const double sim::MCTrack::YintXZ()  const { return fYintXZ;  }
-inline const double sim::MCTrack::YintYZ()  const { return fYintYZ;  }
+inline double sim::MCTrack::Tx()      const { return fTx;      }
+inline double sim::MCTrack::Ty()      const { return fTy;      }
+inline double sim::MCTrack::Tz()      const { return fTz;      }
+inline double sim::MCTrack::X0()      const { return fX0;      }
+inline double sim::MCTrack::Y0()      const { return fY0;      }
+inline double sim::MCTrack::Z0()      const { return fZ0;      }
+inline double sim::MCTrack::BottomX() const { return fBottomX; }
+inline double sim::MCTrack::BottomY() const { return fBottomY; }
+inline double sim::MCTrack::BottomZ() const { return fBottomZ; }
+inline double sim::MCTrack::Theta()   const { return fTheta;   }
+inline double sim::MCTrack::Phi()     const { return fPhi;     }
+inline double sim::MCTrack::AngleXZ() const { return fAngleXZ; }
+inline double sim::MCTrack::AngleYZ() const { return fAngleYZ; }
+inline double sim::MCTrack::SlopeXZ() const { return fSlopeXZ; }
+inline double sim::MCTrack::SlopeYZ() const { return fSlopeYZ; }
+inline double sim::MCTrack::YintXZ()  const { return fYintXZ;  }
+inline double sim::MCTrack::YintYZ()  const { return fYintYZ;  }
 
 #endif

@@ -43,24 +43,24 @@ namespace sim {
     /// Set the origin of the test volume
     void SetOrigin(const double& x, const double& y, const double& z);
 
-    const double GetLength() const;
-    const double GetWidth()  const;
-    const double GetHeight() const;
-    const double GetRadius() const;
-    const double GetXO()     const;
-    const double GetYO()     const;
-    const double GetZO()     const;
+    double GetLength() const;
+    double GetWidth()  const;
+    double GetHeight() const;
+    double GetRadius() const;
+    double GetXO()     const;
+    double GetYO()     const;
+    double GetZO()     const;
 
   };
 
 }
 
-inline const double sim::TestVolume::GetLength() const { return fLength; }
-inline const double sim::TestVolume::GetWidth()  const { return fWidth;  }
-inline const double sim::TestVolume::GetHeight() const { return fHeight; }
-inline const double sim::TestVolume::GetRadius() const { return fRadius; }
-inline const double sim::TestVolume::GetXO()     const { return fXO;     }
-inline const double sim::TestVolume::GetYO()     const { return fYO;     }
-inline const double sim::TestVolume::GetZO()     const { return fZO;     }
+inline double sim::TestVolume::GetLength() const { return fLength; }
+inline double sim::TestVolume::GetWidth()  const { return fWidth;  }
+inline double sim::TestVolume::GetHeight() const { return fHeight; }
+inline double sim::TestVolume::GetRadius() const { return fRadius; }
+inline double sim::TestVolume::GetXO()     const { return fXO;     }
+inline double sim::TestVolume::GetYO()     const { return fYO;     }
+inline double sim::TestVolume::GetZO()     const { return fZO;     }
 
 #endif
