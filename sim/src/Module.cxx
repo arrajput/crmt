@@ -9,10 +9,25 @@
 
 namespace sim {
 
-  Module::Module() {}
-
+  Module::Module()
+  {
+    fScintWidth  = 10.40;
+    fScintHeight = 30.80;
+    fScintGap    = 4.800;
+    fModGap      = 6.400;
+    fScintShift  = 3.333;
+    fScintLength = 650.0;
+  }
+  
   Module::Module(const unsigned int& module_type, const double& gap)
   {
+    fScintWidth  = 10.40;
+    fScintHeight = 30.80;
+    fScintGap    = 4.800;
+    fModGap      = 6.400;
+    fScintShift  = 3.333;
+    fScintLength = 650.0;
+    
     fModuleType = module_type;
     fGap        = gap;
 

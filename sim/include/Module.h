@@ -16,14 +16,14 @@ namespace sim {
   class Module {
   
   private:
-    unsigned int fModuleType; 
-    double       fScintWidth  = 10.40;
-    double       fScintHeight = 30.80;
-    double       fScintGap    = 4.800;
-    double       fModGap      = 6.400;
-    double       fScintShift  = 3.333;
-    double       fScintLength = 650.0;
-    double       fGap;        
+    unsigned int fModuleType;
+    double       fScintWidth;
+    double       fScintHeight;
+    double       fScintGap;
+    double       fModGap;
+    double       fScintShift;
+    double       fScintLength;
+    double       fGap;
   
     std::map<int, std::pair<double,double> > fFiberMap; ///< map of fiber locations
   
