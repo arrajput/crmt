@@ -429,33 +429,33 @@ namespace sim {
       SimHitsToPixels();
       PixelsToPins();
 
-      for ( auto hit : fHitPinsTop0 )
+      for ( auto const& hit : fHitPinsTop0 )
 	fPinsMod0.push_back(hit);
-      for ( auto hit : fHitPinsBot0 )
+      for ( auto const& hit : fHitPinsBot0 )
 	fPinsMod0.push_back(hit);
-      for ( auto hit : fHitPinsTop1 )
+      for ( auto const& hit : fHitPinsTop1 )
 	fPinsMod1.push_back(hit);
-      for ( auto hit : fHitPinsBot1 )
+      for ( auto const& hit : fHitPinsBot1 )
 	fPinsMod1.push_back(hit);
-      for ( auto hit : fHitPinsTop2 )
+      for ( auto const& hit : fHitPinsTop2 )
 	fPinsMod2.push_back(hit);
-      for ( auto hit : fHitPinsBot2 )
+      for ( auto const& hit : fHitPinsBot2 )
 	fPinsMod2.push_back(hit);
-      for ( auto hit : fHitPinsTop3 )
+      for ( auto const& hit : fHitPinsTop3 )
 	fPinsMod3.push_back(hit);
-      for ( auto hit : fHitPinsBot3 )
+      for ( auto const& hit : fHitPinsBot3 )
 	fPinsMod3.push_back(hit);
       
-      for ( auto entry : fPinsMod0 )
+      for ( auto const& entry : fPinsMod0 )
 	if ( entry != 0 )
 	  fPinsArray0[entry] = true;
-      for ( auto entry : fPinsMod1 )
+      for ( auto const& entry : fPinsMod1 )
 	if ( entry != 0 )
 	  fPinsArray1[entry] = true;
-      for ( auto entry : fPinsMod2 )
+      for ( auto const& entry : fPinsMod2 )
 	if ( entry != 0 )
 	  fPinsArray2[entry] = true;
-      for ( auto entry : fPinsMod3 )
+      for ( auto const& entry : fPinsMod3 )
 	if ( entry != 0 )
 	  fPinsArray3[entry] = true;
 
@@ -582,19 +582,19 @@ namespace sim {
     }
 
     for ( auto iMap : fFiberCouplingMap ) {
-      for ( auto hit : Hits0 )
+      for ( auto const& hit : Hits0 )
 	if ( std::find(iMap.second.begin(),iMap.second.end(),hit) != iMap.second.end() )
 	  for ( unsigned int i = 0; i < iMap.second.size(); i++ )
 	    fSimMod0[iMap.second[i]] = true;
-      for ( auto hit : Hits1 )
+      for ( auto const& hit : Hits1 )
 	if ( std::find(iMap.second.begin(),iMap.second.end(),hit) != iMap.second.end() )
 	  for ( unsigned int i = 0; i < iMap.second.size(); i++ )
 	    fSimMod1[iMap.second[i]] = true;
-      for ( auto hit : Hits2 )
+      for ( auto const& hit : Hits2 )
 	if ( std::find(iMap.second.begin(),iMap.second.end(),hit) != iMap.second.end() )
 	  for ( unsigned int i = 0; i < iMap.second.size(); i++ )
 	    fSimMod2[iMap.second[i]] = true;
-      for ( auto hit : Hits3 )
+      for ( auto const& hit : Hits3 )
 	if ( std::find(iMap.second.begin(),iMap.second.end(),hit) != iMap.second.end() )
 	  for ( unsigned int i = 0; i < iMap.second.size(); i++ )
 	    fSimMod3[iMap.second[i]] = true;
@@ -632,13 +632,13 @@ namespace sim {
     for ( int i = 0; i < 256; i++ ) {
       if ( i < 128) {
 	if ( fSimMod0[i] == true )
-	  for ( auto entry : fRemapFiberTop )
+	  for ( auto const& entry : fRemapFiberTop )
 	    if ( entry.first == i )
 	      fHitPixelsTop0.push_back(entry.second);
       }    
       else {
 	if ( fSimMod0[i] == true )
-	  for ( auto entry : fRemapFiberBot )
+	  for ( auto const& entry : fRemapFiberBot )
 	    if ( entry.first == i )
 	      fHitPixelsBot0.push_back(entry.second);
       }      
@@ -647,13 +647,13 @@ namespace sim {
     for ( int i = 0; i < 256; i++ ) {
       if ( i < 128) {
 	if ( fSimMod1[i] == true )
-	  for ( auto entry : fRemapFiberTop )
+	  for ( auto const& entry : fRemapFiberTop )
 	    if ( entry.first == i )
 	      fHitPixelsTop1.push_back(entry.second);
       }    
       else {
 	if ( fSimMod1[i] == true )
-	  for ( auto entry : fRemapFiberBot )
+	  for ( auto const& entry : fRemapFiberBot )
 	    if ( entry.first == i )
 	      fHitPixelsBot1.push_back(entry.second);
       }      
@@ -662,13 +662,13 @@ namespace sim {
     for ( int i = 0; i < 256; i++ ) {
       if ( i < 128) {
 	if ( fSimMod2[i] == true )
-	  for ( auto entry : fRemapFiberTop )
+	  for ( auto const& entry : fRemapFiberTop )
 	    if ( entry.first == i )
 	      fHitPixelsTop2.push_back(entry.second);
       }    
       else {
 	if ( fSimMod2[i] == true )
-	  for ( auto entry : fRemapFiberBot )
+	  for ( auto const& entry : fRemapFiberBot )
 	    if ( entry.first == i )
 	      fHitPixelsBot2.push_back(entry.second);
       }      
@@ -677,13 +677,13 @@ namespace sim {
     for ( int i = 0; i < 256; i++ ) {
       if ( i < 128) {
 	if ( fSimMod3[i] == true )
-	  for ( auto entry : fRemapFiberTop )
+	  for ( auto const& entry : fRemapFiberTop )
 	    if ( entry.first == i )
 	      fHitPixelsTop3.push_back(entry.second);
       }    
       else {
 	if ( fSimMod3[i] == true )
-	  for ( auto entry : fRemapFiberBot )
+	  for ( auto const& entry : fRemapFiberBot )
 	    if ( entry.first == i )
 	      fHitPixelsBot3.push_back(entry.second);
       }      
@@ -696,43 +696,43 @@ namespace sim {
 
   void evg::PixelsToPins()
   {
-    for ( auto entry : fHitPixelsTop0 )
-      for ( auto link : fPixelToPinTop )
+    for ( auto const& entry : fHitPixelsTop0 )
+      for ( auto const& link : fPixelToPinTop )
 	if ( link.second == entry )
 	  fHitPinsTop0.push_back(link.first);
 
-    for ( auto entry : fHitPixelsBot0 )
-      for ( auto link : fPixelToPinBot )
+    for ( auto const& entry : fHitPixelsBot0 )
+      for ( auto const& link : fPixelToPinBot )
 	if ( link.second == entry )
 	  fHitPinsBot0.push_back(link.first);
 
-    for ( auto entry : fHitPixelsTop1 )
-      for ( auto link : fPixelToPinTop )
+    for ( auto const& entry : fHitPixelsTop1 )
+      for ( auto const& link : fPixelToPinTop )
 	if ( link.second == entry )
 	  fHitPinsTop1.push_back(link.first);
 
-    for ( auto entry : fHitPixelsBot1 )
-      for ( auto link : fPixelToPinBot )
+    for ( auto const& entry : fHitPixelsBot1 )
+      for ( auto const& link : fPixelToPinBot )
 	if ( link.second == entry )
 	  fHitPinsBot1.push_back(link.first);
 
-    for ( auto entry : fHitPixelsTop2 )
-      for ( auto link : fPixelToPinTop )
+    for ( auto const& entry : fHitPixelsTop2 )
+      for ( auto const& link : fPixelToPinTop )
 	if ( link.second == entry )
 	  fHitPinsTop2.push_back(link.first);
 
-    for ( auto entry : fHitPixelsBot2 )
-      for ( auto link : fPixelToPinBot )
+    for ( auto const& entry : fHitPixelsBot2 )
+      for ( auto const& link : fPixelToPinBot )
 	if ( link.second == entry )
 	  fHitPinsBot2.push_back(link.first);
 
-    for ( auto entry : fHitPixelsTop3 )
-      for ( auto link : fPixelToPinTop )
+    for ( auto const& entry : fHitPixelsTop3 )
+      for ( auto const& link : fPixelToPinTop )
 	if ( link.second == entry )
 	  fHitPinsTop3.push_back(link.first);
 
-    for ( auto entry : fHitPixelsBot3 )
-      for ( auto link : fPixelToPinBot )
+    for ( auto const& entry : fHitPixelsBot3 )
+      for ( auto const& link : fPixelToPinBot )
 	if ( link.second == entry )
 	  fHitPinsBot3.push_back(link.first);
   }

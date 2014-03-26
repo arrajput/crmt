@@ -109,7 +109,7 @@ namespace reco {
   bool RecoModule::check_event(std::vector<int>& pin_data) {
     bool check      =  false;
     if(pin_data.size()>=1){      //Must have at least 1 pins hit, commented Feb 4.  
-      for(auto pin : pin_data){  //Loop over pins              
+      for(auto const& pin : pin_data){  //Loop over pins              
 	for(int j=0;j<8;++j){    //check against goodpins (which are identifier row pins, there are 8)
 	  // int goodpins[8] =  {8,9,10,11,12,13,14,15}; //this must be manually entered
 	  if(pin == goodpins[j]){
@@ -186,7 +186,7 @@ namespace reco {
     int pin, pixel;
     bool top = true;
   
-    for (auto tb: fHitFibers){
+    for (auto& tb: fHitFibers){
       if( tb.first == 1 ) top = false;
       Fiber f;
       for(unsigned int tt=0;tt<(tb.second).size();++tt){
@@ -222,7 +222,7 @@ namespace reco {
   }
   void RecoModule::print_fibers()
   {
-    for(auto fib : fFibers){
+    for(auto& fib : fFibers){
       fib.dump();
     }
   
@@ -232,14 +232,14 @@ namespace reco {
     bool contains  = false;
     bool contains2 = false;
   
-    for(auto fib : fFibers){
+    for(auto& fib : fFibers){
     
       if( fib.y() == 0 )
 	continue;
     
       contains = false;
     
-      for(auto track : fTracks){
+      for(auto& track : fTracks){
 	if( track.contains(fib) ){
 	  contains = true;
 	  break;
@@ -257,7 +257,7 @@ namespace reco {
       
 	Fiber local_fib=newtrack.fibers()[index];
       
-	for(auto fib2 : fFibers){
+	for(auto& fib2 : fFibers){
 	
 	  if( fib2.y() == 0 )
 	    continue;
@@ -292,8 +292,8 @@ namespace reco {
       if( unsigned(track - fTracks.begin()) == fTracks.size()) 
 	break;
       found = false;
-      for(auto fibs : track->fibers()){
-	for (auto fib : fFibers){
+      for(auto& fibs : track->fibers()){
+	for (auto& fib : fFibers){
 	  if (fib.y() == 0){
 	    if (fib.near(fibs) && !track->contains(fib)) {
 	      track->add_fiber(fib);
@@ -314,7 +314,7 @@ namespace reco {
   void RecoModule::print_tracks()
   {
     std::cout << "!!!!!!!!!Module id: " << fId << " status!!!!!!!!!\n";
-    for(auto tr : fTracks){
+    for(auto& tr : fTracks){
       tr.dump();
     }
   
@@ -352,7 +352,7 @@ namespace reco {
   {
     bool one_each[4] = {false,false,false,false};
 
-    for (auto fiber : trakk.fibers())
+    for (auto& fiber : trakk.fibers())
       for(size_t layer=0;layer<4;++layer)
 	if(fiber.y()==layer)
 	  one_each[layer] = true;

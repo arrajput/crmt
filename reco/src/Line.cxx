@@ -79,7 +79,7 @@ namespace reco {
     double _local_redchi;
     int cnt = 0;
     fLowCnt = cnt;
-    for(auto line : fFits){
+    for(auto& line : fFits){
       _local_redchi = (line->GetChisquare())/(line->GetNDF()); 
       if (_local_redchi < _redchi){
 	fLowCnt = cnt;

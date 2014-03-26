@@ -27,7 +27,7 @@ namespace reco {
   }
   bool Track::contains(Fiber a)
   {
-    for(auto fib : fFibers){
+    for(auto& fib : fFibers){
       if( fib.id() == a.id() &&
 	  fib.x() == a.x() &&
 	  fib.y() == a.y() ) return true;
@@ -38,7 +38,7 @@ namespace reco {
   void Track::dump()
   {
     std::cout << " track id " << id() << std::endl;
-    for(auto fib : fFibers){
+    for(auto& fib : fFibers){
       fib.dump();
     }
 

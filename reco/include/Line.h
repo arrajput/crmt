@@ -68,19 +68,19 @@ namespace reco {
 
     void dump();
   
-    inline const double slope()     const { return fSlope;     }
-    inline const double yinter()    const { return fYinter;    }
-    inline const double slopeerr()  const { return fSlopeErr;  }
-    inline const double yintererr() const { return fYinterErr; }
-    inline const double angle()     const { return fAngle;     }
-    inline const double angleerr()  const { return fAngleErr;  }
-    inline const double chi()       const { return fChi;       }
-    inline const double rchi()      const { return fRChi;      }
-    inline const double ndf()       const { return fNdf;       }
-    inline const double pvalue()    const { return fPvalue;    }
-    inline const double cosangle()  const { return fCosAngle; }
+    inline double slope()     const { return fSlope;     }
+    inline double yinter()    const { return fYinter;    }
+    inline double slopeerr()  const { return fSlopeErr;  }
+    inline double yintererr() const { return fYinterErr; }
+    inline double angle()     const { return fAngle;     }
+    inline double angleerr()  const { return fAngleErr;  }
+    inline double chi()       const { return fChi;       }
+    inline double rchi()      const { return fRChi;      }
+    inline double ndf()       const { return fNdf;       }
+    inline double pvalue()    const { return fPvalue;    }
+    inline double cosangle()  const { return fCosAngle; }
   
-    inline const std::pair<reco::Track,reco::Track> get_best_tracks() const { return fBestTracks; }
+    inline const std::pair<reco::Track,reco::Track>& get_best_tracks() const { return fBestTracks; }
   
   };
 

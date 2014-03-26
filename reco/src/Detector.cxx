@@ -27,7 +27,7 @@ namespace reco {
     clean_event();
   
     good = false;
-    for(auto module : eventdata){
+    for(auto& module : eventdata){
       if(fModules[module.first]->check_event(module.second) && eventdata.size() == 4) {
 	fModules[module.first]->find_hit_fibers(module.second);
 	fModules[module.first]->fill_fibers();
@@ -62,7 +62,7 @@ namespace reco {
 
   void Detector::clean_event(){
   
-    for(auto module : fModules)
+    for(auto& module : fModules)
       module->clear();
   
     fLines.first.clear_lines();

@@ -135,22 +135,22 @@ namespace sim {
     fAll3 = new TGraph(); fAll3->SetMarkerStyle(7);
   
     int counter = 0;
-    for ( auto fib : Mod0 ) {
+    for ( auto const& fib : Mod0 ) {
       fAll0->SetPoint(counter,fib.second.first,fib.second.second);
       counter++;
     }
     counter = 0;
-    for ( auto fib : Mod1 ) {
+    for ( auto const& fib : Mod1 ) {
       fAll1->SetPoint(counter,fib.second.first,fib.second.second);
       counter++;
     }
     counter = 0;
-    for ( auto fib : Mod2 ) {
+    for ( auto const& fib : Mod2 ) {
       fAll2->SetPoint(counter,fib.second.first,fib.second.second);
       counter++;
     }
     counter = 0;
-    for ( auto fib : Mod3 ) {
+    for ( auto const& fib : Mod3 ) {
       fAll3->SetPoint(counter,fib.second.first,fib.second.second);
       counter++;
     }
