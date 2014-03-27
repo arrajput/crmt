@@ -25,7 +25,7 @@ namespace reco {
   {
     fid = a;
   }
-  bool Track::contains(Fiber a)
+  bool Track::contains(Fiber a) const
   {
     for(auto& fib : fFibers){
       if( fib.id() == a.id() &&

@@ -40,7 +40,7 @@ namespace reco {
     void add_fiber(reco::Fiber a);
     void set_id(int a);
 
-    bool contains(reco::Fiber a);
+    bool contains(reco::Fiber a) const;
     void dump();
     //void fit();
     //void calculate_angle();
