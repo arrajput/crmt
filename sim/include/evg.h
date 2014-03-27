@@ -113,13 +113,13 @@ namespace sim {
     sim::Module                       *fMod2;
     sim::Module                       *fMod3;
 
-    double                             fScintWidth  = 10.4; ///< scintillator width
-    double                             fScintHeight = 30.8; ///< scintillator height 
-    double                             fScintLength = 650.0; ///< scintillator length
-    double                             fStripShift  = 3.333; ///< shift for rows
-    double                             fScintGap    = 4.8; ///< gap between rows
-    double                             fModGap      = 6.4; ///< gap between modules
-    const double                       PI           = 4*atan(1.); ///< pi = 3.14159....
+    double                             fScintWidth;
+    double                             fScintHeight;
+    double                             fScintLength;
+    double                             fStripShift;
+    double                             fScintGap;
+    double                             fModGap;
+    double                             PI;
   
     TTree                             *fTestVolumeTree; ///< test volume tree
     sim::TestVolume                   *fTestVolume;  ///< test volume object

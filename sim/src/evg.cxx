@@ -12,12 +12,29 @@
 
 namespace sim {
 
-  evg::evg() {}
+  evg::evg()
+  {
+    fScintWidth  = 10.4;
+    fScintHeight = 30.8;
+    fScintLength = 650.0;
+    fStripShift  = 3.333;
+    fScintGap    = 4.8;
+    fModGap      = 6.4;
+    PI           = 4*atan(1.);
+  }
 
   // __________________________________________________________________
 
   evg::evg(const std::string& file_name, const unsigned int& n_events)
   {
+    fScintWidth  = 10.4;
+    fScintHeight = 30.8;
+    fScintLength = 650.0;
+    fStripShift  = 3.333;
+    fScintGap    = 4.8;
+    fModGap      = 6.4;
+    PI           = 4*atan(1.);
+
     std::string name = "output/"+file_name;
     fNEvents  = n_events;
     fFile     = new TFile(name.c_str(),"RECREATE");
