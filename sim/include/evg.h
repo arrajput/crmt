@@ -182,6 +182,7 @@ namespace sim {
     inline bool BoxIntersect(const sim::MCTrack& line, const sim::TestVolume& vol);
 
   };
+
 }
 
 #endif

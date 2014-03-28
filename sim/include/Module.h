@@ -42,7 +42,9 @@ namespace sim {
     const std::map<int, std::pair<double,double> >& GetMap()         const;
     unsigned int                                    GetModuleType()  const;
     double                                          GetScintLength() const;
+
   };
+
 }
 
 inline const std::map<int, std::pair<double,double> >& sim::Module::GetMap()         const { return fFiberMap;    }

@@ -24,6 +24,7 @@ namespace sim {
   class evd : public sim::evg {
 
   private:
+
     TFile            *fFile; ///< file to be read
     TTree            *fTree; ///< simulation tree to read simulation info
     TTree            *fVolTree; ///< test volume tree to read test volume info
@@ -72,7 +73,9 @@ namespace sim {
 
     /// Draws the simulated event display (multiplxed)
     void DrawSim();
+
   };
+
 }
 
 #endif
