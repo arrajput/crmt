@@ -16,6 +16,7 @@ namespace sim {
   class Module {
   
   private:
+
     unsigned int fModuleType;
     double       fScintWidth;
     double       fScintHeight;
