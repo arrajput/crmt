@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <memory>
 #include "TGraph.h"
 #include "TF1.h"
 #include "TCanvas.h"

@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <memory>
 #include "evg.h"
 #include "TRandom.h"
 #include "TF1.h"
