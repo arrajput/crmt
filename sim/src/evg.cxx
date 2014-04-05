@@ -269,10 +269,12 @@ namespace sim {
     std::map<int, std::pair<double,double> > Mod3Loc = fMod3->GetMap();
     std::map<int, std::pair<double,double> >::iterator FiberItr;
 
-    TF1 *cossq = new TF1("cossq","cos(x)*cos(x)",PI/2.,PI);
+    //    TF1 *cossq = new TF1("cossq","cos(x)*cos(x)",PI/2.,PI);
+    auto cossq = std::make_shared<TF1>("cossq","cos(x)*cos(x)",PI/2.,PI);
     for ( unsigned int ev = 0; ev < fNEvents; ev++ ) {
       fEventID = ev;
-      sim::MCTrack *Muon = new sim::MCTrack();
+      //sim::MCTrack *Muon = new sim::MCTrack();
+      auto Muon = std::make_shared<sim::MCTrack>();
       double InitialZ = 600 + fGap;
       fInitialZ = InitialZ;
       if ( fOriginUniformDist ) {
@@ -331,44 +333,44 @@ namespace sim {
       fBottomX = Muon->BottomX();
       fBottomY = Muon->BottomY();
       fBottomZ = Muon->BottomZ();
-    
-      for ( FiberItr = Mod0Loc.begin(); FiberItr != Mod0Loc.end(); FiberItr++ ) {
-	if ( Intersection((*FiberItr).second.first,(*FiberItr).second.second,
+
+      for ( auto const& FiberItr : Mod0Loc ) {
+	if ( Intersection(FiberItr.second.first,FiberItr.second.second,
 			  *Muon,false,fGap,0) ) {
-	  fTrueMod0[(*FiberItr).first] = true;
+	  fTrueMod0[FiberItr.first] = true;
 	}
 	else {
-	  fTrueMod0[(*FiberItr).first] = false;
+	  fTrueMod0[FiberItr.first] = false;
 	}
       }
-    
-      for ( FiberItr = Mod1Loc.begin(); FiberItr != Mod1Loc.end(); FiberItr++ ) {
-	if ( Intersection((*FiberItr).second.first,(*FiberItr).second.second,
+      
+      for ( auto const& FiberItr : Mod1Loc ) {
+	if ( Intersection(FiberItr.second.first,FiberItr.second.second,
 			  *Muon,true,fGap,1) ) {
-	  fTrueMod1[(*FiberItr).first] = true;
+	  fTrueMod1[FiberItr.first] = true;
 	}
 	else {
-	  fTrueMod1[(*FiberItr).first] = false;
+	  fTrueMod1[FiberItr.first] = false;
 	}
       }
-    
-      for ( FiberItr = Mod2Loc.begin(); FiberItr != Mod2Loc.end(); FiberItr++ ) {
-	if ( Intersection((*FiberItr).second.first,(*FiberItr).second.second,
+      
+      for ( auto const& FiberItr : Mod2Loc ) {
+	if ( Intersection(FiberItr.second.first,FiberItr.second.second,
 			  *Muon,false,fGap,2) ) {
-	  fTrueMod2[(*FiberItr).first] = true;
+	  fTrueMod2[FiberItr.first] = true;
 	}
 	else {
-	  fTrueMod2[(*FiberItr).first] = false;
+	  fTrueMod2[FiberItr.first] = false;
 	}
       }
-    
-      for ( FiberItr = Mod3Loc.begin(); FiberItr != Mod3Loc.end(); FiberItr++ ) {
-	if ( Intersection((*FiberItr).second.first,(*FiberItr).second.second,
+      
+      for ( auto const& FiberItr : Mod3Loc ) {
+	if ( Intersection(FiberItr.second.first,FiberItr.second.second,
 			  *Muon,true,fGap,3) ) {
-	  fTrueMod3[(*FiberItr).first] = true;
+	  fTrueMod3[FiberItr.first] = true;
 	}
 	else {
-	  fTrueMod3[(*FiberItr).first] = false;
+	  fTrueMod3[FiberItr.first] = false;
 	}
       }
       
