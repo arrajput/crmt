@@ -256,58 +256,55 @@ namespace sim {
       fPinsArray2[i] = false;
       fPinsArray3[i] = false;
     }
+
     InitCoupleMap();
     InitFiberPixelPinPairs();
     gRandom->SetSeed(0);
+
     fMod0 = new sim::Module(0,fGap);
     fMod1 = new sim::Module(1,fGap);
     fMod2 = new sim::Module(2,fGap);
     fMod3 = new sim::Module(3,fGap);
-    std::map<int, std::pair<double,double> > Mod0Loc = fMod0->GetMap();
-    std::map<int, std::pair<double,double> > Mod1Loc = fMod1->GetMap();
-    std::map<int, std::pair<double,double> > Mod2Loc = fMod2->GetMap();
-    std::map<int, std::pair<double,double> > Mod3Loc = fMod3->GetMap();
-    std::map<int, std::pair<double,double> >::iterator FiberItr;
 
-    //    TF1 *cossq = new TF1("cossq","cos(x)*cos(x)",PI/2.,PI);
-    auto cossq = std::make_shared<TF1>("cossq","cos(x)*cos(x)",PI/2.,PI);
+    auto Mod0Loc = fMod0->GetMap(); // map<int,pair<double,double>>
+    auto Mod1Loc = fMod1->GetMap(); // " "
+    auto Mod2Loc = fMod2->GetMap(); // " "
+    auto Mod3Loc = fMod3->GetMap(); // " "
+
+    auto Cos2_function = std::make_shared<TF1>("Cos2_function","cos(x)*cos(x)",PI/2.,PI);
+
     for ( unsigned int ev = 0; ev < fNEvents; ev++ ) {
       fEventID = ev;
-      //sim::MCTrack *Muon = new sim::MCTrack();
       auto Muon = std::make_shared<sim::MCTrack>();
       double InitialZ = 600 + fGap;
       fInitialZ = InitialZ;
+
       if ( fOriginUniformDist ) {
 	fInitialX = gRandom->Uniform(fOriginUniformDistMin,fOriginUniformDistMax);
 	fInitialY = gRandom->Uniform(fOriginUniformDistMin,fOriginUniformDistMax);
-      }
-      else if ( fOriginDefined ) {
+      } else if ( fOriginDefined ) {
 	fInitialX = fOriginDefinedX;
 	fInitialY = fOriginDefinedY;
-      }
-      else {
+      } else {
 	std::cout << "WARNING: Muon origin definition malfunction." << std::endl;
       }
       Muon->SetInitialPos(fInitialX,fInitialY,fInitialZ);
-      if ( fAngleZenithDefined )
+
+      if ( fAngleZenithDefined ) {
 	fTheta = fAngleZenithDefinedValue;
-      else if ( fAngleZenithCosSq ) {
-	fTheta = cossq->GetRandom();
-      }
-      else if ( fAngleZenithGaussian ) {
-	fTheta = fabs(gRandom->Gaus(fAngleZenithGaussianCenter,
-				    fAngleZenithGaussianSigma));
-      }
-      else {
+      } else if ( fAngleZenithCosSq ) {
+	fTheta = Cos2_function->GetRandom();
+      } else if ( fAngleZenithGaussian ) {
+	fTheta = fabs(gRandom->Gaus(fAngleZenithGaussianCenter,fAngleZenithGaussianSigma));
+      } else {
 	std::cout << "WARNING: Muon zenith angle definition malfunction." << std::endl;
       }
+
       if ( fAnglePolarDefined ) {
 	fPhi = fAnglePolarDefinedValue;
-      }
-      else if ( fAnglePolarUniform ) {
+      } else if ( fAnglePolarUniform ) {
 	fPhi = gRandom->Uniform(fAnglePolarUniformMin,fAnglePolarUniformMax);
-      }
-      else {
+      } else {
 	std::cout << "WARNING: Muon polar angle definition malfunction" << std::endl;
       }
     
@@ -523,12 +520,12 @@ namespace sim {
     if ( (xP < 0) || (xP > fMod0->GetScintLength()) )
       return false;
 
-    double           LeftEdge_h = FibI - fScintWidth/2.0;
-    double          RightEdge_h = FibI + fScintWidth/2.0;
+    double              LeftEdge_h = FibI - fScintWidth/2.0;
+    double             RightEdge_h = FibI + fScintWidth/2.0;
     double   MCTrackLeftLocation_v = Slope*LeftEdge_h + Yint;
     double  MCTrackRightLocation_v = Slope*RightEdge_h + Yint;
-    double            TopEdge_v = FibJ + fScintHeight/2.0;
-    double         BottomEdge_v = FibJ - fScintHeight/2.0;
+    double               TopEdge_v = FibJ + fScintHeight/2.0;
+    double            BottomEdge_v = FibJ - fScintHeight/2.0;
     double           MCTrackXTop_h = (TopEdge_v - Yint)/Slope;
     double           MCTrackXBot_h = (BottomEdge_v - Yint)/Slope;
   
@@ -600,7 +597,7 @@ namespace sim {
 	Hits3.push_back(i);
     }
 
-    for ( auto iMap : fFiberCouplingMap ) {
+    for ( auto const& iMap : fFiberCouplingMap ) {
       for ( auto const& hit : Hits0 )
 	if ( std::find(iMap.second.begin(),iMap.second.end(),hit) != iMap.second.end() )
 	  for ( unsigned int i = 0; i < iMap.second.size(); i++ )

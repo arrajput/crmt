@@ -20,16 +20,14 @@
 
 namespace sim {
 
-  evd::evd()
-  {}
+  evd::evd() {}
   
-  evd::~evd()
-  {}
+  evd::~evd() {}
   
   void evd::InitFile(const std::string& file_name, const unsigned int& event_number)
   {
     fFile = new TFile(file_name.c_str());
-    fTree = (TTree*)fFile->Get("SimulationTree");
+    fTree = dynamic_cast<TTree*>(fFile->Get("SimulationTree"));
     fTree->SetBranchAddress("InitialX",   &fInitialX);
     fTree->SetBranchAddress("InitialY",   &fInitialY);
     fTree->SetBranchAddress("InitialZ",   &fInitialZ);
@@ -54,7 +52,7 @@ namespace sim {
     fTree->SetBranchAddress("SimMod3",     fSimMod3);
     fSelectedEventID = event_number;
 
-    fVolTree = (TTree*)fFile->Get("TestVolumeTree");
+    fVolTree = dynamic_cast<TTree*>(fFile->Get("TestVolumeTree"));
     fVolTree->SetBranchAddress("Gap",     &fGap);
     fVolTree->SetBranchAddress("TVOn",    &fTVOn);
     fVolTree->SetBranchAddress("TVCenter", fTVCenter);
@@ -120,14 +118,14 @@ namespace sim {
   {
     fTree->GetEntry(fSelectedEventID);
     double gap = fGap;
-    sim::Module *mod0 = new sim::Module(0,gap);
-    sim::Module *mod1 = new sim::Module(1,gap);
-    sim::Module *mod2 = new sim::Module(2,gap);
-    sim::Module *mod3 = new sim::Module(3,gap);
-    std::map<int, std::pair<double,double> > Mod0 = mod0->GetMap();
-    std::map<int, std::pair<double,double> > Mod1 = mod1->GetMap();
-    std::map<int, std::pair<double,double> > Mod2 = mod2->GetMap();
-    std::map<int, std::pair<double,double> > Mod3 = mod3->GetMap();
+    auto mod0 = std::make_shared<sim::Module>(0,gap);
+    auto mod1 = std::make_shared<sim::Module>(1,gap);
+    auto mod2 = std::make_shared<sim::Module>(2,gap);
+    auto mod3 = std::make_shared<sim::Module>(3,gap);
+    auto Mod0 = mod0->GetMap();
+    auto Mod1 = mod1->GetMap();
+    auto Mod2 = mod2->GetMap();
+    auto Mod3 = mod3->GetMap();
 
     fAll0 = new TGraph(); fAll0->SetMarkerStyle(7);
     fAll1 = new TGraph(); fAll1->SetMarkerStyle(7);
@@ -162,14 +160,14 @@ namespace sim {
     SetupTVs();
     fTree->GetEntry(fSelectedEventID);
     double gap = fGap;
-    sim::Module *mod0 = new sim::Module(0,gap);
-    sim::Module *mod1 = new sim::Module(1,gap);
-    sim::Module *mod2 = new sim::Module(2,gap);
-    sim::Module *mod3 = new sim::Module(3,gap);
-    std::map<int, std::pair<double,double> > Mod0 = mod0->GetMap();
-    std::map<int, std::pair<double,double> > Mod1 = mod1->GetMap();
-    std::map<int, std::pair<double,double> > Mod2 = mod2->GetMap();
-    std::map<int, std::pair<double,double> > Mod3 = mod3->GetMap();
+    auto mod0 = std::make_shared<sim::Module>(0,gap);
+    auto mod1 = std::make_shared<sim::Module>(1,gap);
+    auto mod2 = std::make_shared<sim::Module>(2,gap);
+    auto mod3 = std::make_shared<sim::Module>(3,gap);
+    auto Mod0 = mod0->GetMap();
+    auto Mod1 = mod1->GetMap();
+    auto Mod2 = mod2->GetMap();
+    auto Mod3 = mod3->GetMap();
     TGraph *Graph0 = new TGraph();
     Graph0->SetMarkerColor(kBlue);
     Graph0->SetMarkerStyle(8);
@@ -377,14 +375,14 @@ namespace sim {
     SetupTVs();
     fTree->GetEntry(fSelectedEventID);
     double gap = fGap;
-    sim::Module *mod0 = new sim::Module(0,gap);
-    sim::Module *mod1 = new sim::Module(1,gap);
-    sim::Module *mod2 = new sim::Module(2,gap);
-    sim::Module *mod3 = new sim::Module(3,gap);
-    std::map<int, std::pair<double,double> > Mod0 = mod0->GetMap();
-    std::map<int, std::pair<double,double> > Mod1 = mod1->GetMap();
-    std::map<int, std::pair<double,double> > Mod2 = mod2->GetMap();
-    std::map<int, std::pair<double,double> > Mod3 = mod3->GetMap();
+    auto mod0 = std::make_shared<sim::Module>(0,gap);
+    auto mod1 = std::make_shared<sim::Module>(1,gap);
+    auto mod2 = std::make_shared<sim::Module>(2,gap);
+    auto mod3 = std::make_shared<sim::Module>(3,gap);
+    auto Mod0 = mod0->GetMap();
+    auto Mod1 = mod1->GetMap();
+    auto Mod2 = mod2->GetMap();
+    auto Mod3 = mod3->GetMap();
     TGraph *Graph0 = new TGraph();
     Graph0->SetMarkerColor(kBlue);
     Graph0->SetMarkerStyle(8);

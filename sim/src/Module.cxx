@@ -59,23 +59,19 @@ namespace sim {
 	y = 3*fScintGap+3.5*fScintHeight+raise;
 	x = fScintShift+(0.5+i)*fScintWidth;
 	fFiberMap[i] = std::make_pair(x,y);
-      }
-      else if ( i > 63 && i < 128 ) {
+      } else if ( i > 63 && i < 128 ) {
 	y = 2*fScintGap+2.5*fScintHeight+raise;
 	x = 2*fScintShift+(0.5+(i-64))*fScintWidth;
 	fFiberMap[i] = std::make_pair(x,y);
-      }
-      else if ( i > 127 && i < 192) {
+      } else if ( i > 127 && i < 192) {
 	y = 1*fScintGap+1.5*fScintHeight+raise;
 	x = fScintShift+(0.5+(i-128))*fScintWidth;
 	fFiberMap[i] = std::make_pair(x,y);
-      }
-      else if ( i > 191 ) {
+      } else if ( i > 191 ) {
 	y = .5*fScintHeight+raise;
 	x = (0.5+(i-192))*fScintWidth;
 	fFiberMap[i] = std::make_pair(x,y);
-      }	     
-      else {
+      }	else {
 	std::cout << "Mad fFiberMap key" << std::endl;
 	continue;
       }
