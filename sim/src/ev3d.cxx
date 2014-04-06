@@ -11,14 +11,15 @@
 #include "Module.h"
 #include "ev3d.h"
 #include <vector>
+#include <memory>
 #include <map>
 
 void Draw3DGL(const std::string& file_name, const bool& true_view, const unsigned int& event_id)
 {
-  TFile *the_file   = new TFile(file_name.c_str());
-  TTree *event_tree = (TTree*)the_file->Get("SimulationTree");
-  TTree *tv_tree    = (TTree*)the_file->Get("TestVolumeTree");
-
+  auto the_file     = std::make_shared<TFile>(file_name.c_str());
+  TTree *event_tree = dynamic_cast<TTree*>(the_file->Get("SimulationTree"));
+  TTree *tv_tree    = dynamic_cast<TTree*>(the_file->Get("TestVolumeTree"));
+  
   bool TrueMod0[256], SimMod0[256];
   bool TrueMod1[256], SimMod1[256];
   bool TrueMod2[256], SimMod2[256];
@@ -46,11 +47,16 @@ void Draw3DGL(const std::string& file_name, const bool& true_view, const unsigne
   tv_tree->SetBranchAddress("Gap",&Gap);
   tv_tree->GetEntry(0);
 
-  sim::Module Mod0(0,Gap); auto Mod0Loc = Mod0.GetMap();
-  sim::Module Mod1(1,Gap); auto Mod1Loc = Mod1.GetMap();
-  sim::Module Mod2(2,Gap); auto Mod2Loc = Mod2.GetMap();
-  sim::Module Mod3(3,Gap); auto Mod3Loc = Mod3.GetMap();
+  auto Mod0 = std::make_shared<sim::Module>(0,Gap);
+  auto Mod1 = std::make_shared<sim::Module>(1,Gap);
+  auto Mod2 = std::make_shared<sim::Module>(2,Gap);
+  auto Mod3 = std::make_shared<sim::Module>(3,Gap);
   
+  auto Mod0Loc = Mod0->GetMap();
+  auto Mod1Loc = Mod1->GetMap();
+  auto Mod2Loc = Mod2->GetMap();
+  auto Mod3Loc = Mod3->GetMap();
+
   TGeoVolume *extrusions0[256];
   TGeoVolume *extrusions1[256];
   TGeoVolume *extrusions2[256];
@@ -130,4 +136,5 @@ void Draw3DGL(const std::string& file_name, const bool& true_view, const unsigne
   muon_line->SetLineColor(kRed);
   muon_line->SetLineWidth(3);
   muon_line->Draw();
+
 }
