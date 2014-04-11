@@ -39,10 +39,10 @@ namespace reco {
     void set_coordinates();
     void dump();
 
-    inline const std::pair<double,double> location(const int& a, const int& b) const { return fLocation[a][b]; }
+    const std::pair<double,double>& location(const int& a, const int& b) const { return fLocation[a][b]; }
 
-    inline const double get_HalfHeight() const { return fHalfHeight; }
-    inline const double get_Width()      const { return fWidth;      }
+    double get_HalfHeight() const { return fHalfHeight; }
+    double get_Width()      const { return fWidth;      }
   
   };
 

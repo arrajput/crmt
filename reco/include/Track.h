@@ -49,10 +49,10 @@ namespace reco {
     void hasoneeach(bool a);
     //bool is_chosen(){return fChosen;}
 
-    inline       int                       id()            const { return fid;            }
-    inline       int                       size()          const { return fFibers.size(); }
-    inline const std::vector<reco::Fiber>& fibers()        const { return fFibers;        }
-    inline       bool                      is_hasoneeach() const { return fHasOneEach;    }
+    int                             id()            const { return fid;            }
+    int                             size()          const { return fFibers.size(); }
+    bool                            is_hasoneeach() const { return fHasOneEach;    }
+    const std::vector<reco::Fiber>& fibers()        const { return fFibers;        }
 
   };
 

@@ -86,7 +86,7 @@ namespace reco {
     // holy shit i'm a bad programmer
     // need only return the best track and the angle associated with it
   
-    inline const std::vector<reco::Track> get_Tracks() const { return fTracks; }
+    const std::vector<reco::Track>& get_Tracks() const { return fTracks; }
 
 
     bool one_each_layer(reco::Track trakk);

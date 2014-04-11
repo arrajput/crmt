@@ -85,12 +85,12 @@ namespace reco {
     void setup();
   
     TGraphErrors* get_modules(int a)  {return tgModules[a];}
-    inline const std::pair<TF1*,TF1*> get_recolines() const {return tgRecoLines;}
+    const std::pair<TF1*,TF1*>& get_recolines() const {return tgRecoLines;}
 
     double flip_yinter(double& slope, double& yinter);
     double flip_slope(double& slope);
 
-    inline const std::pair<TGraphErrors*,TGraphErrors*> get_hit_points() const { return tgHitPoints; }
+    const std::pair<TGraphErrors*,TGraphErrors*>& get_hit_points() const { return tgHitPoints; }
 
   };
 

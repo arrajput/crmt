@@ -68,19 +68,19 @@ namespace reco {
 
     void dump();
   
-    inline double slope()     const { return fSlope;     }
-    inline double yinter()    const { return fYinter;    }
-    inline double slopeerr()  const { return fSlopeErr;  }
-    inline double yintererr() const { return fYinterErr; }
-    inline double angle()     const { return fAngle;     }
-    inline double angleerr()  const { return fAngleErr;  }
-    inline double chi()       const { return fChi;       }
-    inline double rchi()      const { return fRChi;      }
-    inline double ndf()       const { return fNdf;       }
-    inline double pvalue()    const { return fPvalue;    }
-    inline double cosangle()  const { return fCosAngle; }
+    double slope()     const { return fSlope;     }
+    double yinter()    const { return fYinter;    }
+    double slopeerr()  const { return fSlopeErr;  }
+    double yintererr() const { return fYinterErr; }
+    double angle()     const { return fAngle;     }
+    double angleerr()  const { return fAngleErr;  }
+    double chi()       const { return fChi;       }
+    double rchi()      const { return fRChi;      }
+    double ndf()       const { return fNdf;       }
+    double pvalue()    const { return fPvalue;    }
+    double cosangle()  const { return fCosAngle; }
   
-    inline const std::pair<reco::Track,reco::Track>& get_best_tracks() const { return fBestTracks; }
+    const std::pair<reco::Track,reco::Track>& get_best_tracks() const { return fBestTracks; }
   
   };
 

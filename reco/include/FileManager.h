@@ -122,8 +122,8 @@ namespace reco {
 
     int print_sim_event();
 
-    inline double get_gap()      const { return fGap;        }
-    inline int    get_n_events() const { return fNRawEvents; }
+    double get_gap()      const { return fGap;        }
+    int    get_n_events() const { return fNRawEvents; }
 
   };
 

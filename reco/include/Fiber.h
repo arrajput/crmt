@@ -44,14 +44,14 @@ namespace reco {
     bool near(Fiber b);
     void set_coords(std::pair<double,double> coords);
   
-    inline const int    id()    const { return fid;    }
-    inline const double x()     const { return fx;     }
-    inline const double y()     const { return fy;     }
-    inline const int    pin()   const { return fpin;   }
-    inline const int    pixel() const { return fpixel; }   
+    int    id()    const { return fid;    }
+    double x()     const { return fx;     }
+    double y()     const { return fy;     }
+    int    pin()   const { return fpin;   }
+    int    pixel() const { return fpixel; }   
   
-    inline const std::pair<double,double> coords()     const { return fCoords; }
-    inline const std::pair<double,double> get_coords() const { return fCoords; }
+    const std::pair<double,double>& coords()     const { return fCoords; }
+    const std::pair<double,double>& get_coords() const { return fCoords; }
 
   };
 
