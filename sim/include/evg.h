@@ -108,10 +108,10 @@ namespace sim {
     std::vector<int>                   fHitPinsBot3; ///< contains hit pin ids (mod3 bottom pmt)
     std::map<int, std::vector<int> >   fFiberCouplingMap;
   
-    sim::Module                       *fMod0;
-    sim::Module                       *fMod1;
-    sim::Module                       *fMod2;
-    sim::Module                       *fMod3;
+    std::shared_ptr<sim::Module>       fMod0;
+    std::shared_ptr<sim::Module>       fMod1;
+    std::shared_ptr<sim::Module>       fMod2;
+    std::shared_ptr<sim::Module>       fMod3;
 
     double                             fScintWidth;
     double                             fScintHeight;
@@ -122,7 +122,7 @@ namespace sim {
     double                             PI;
   
     TTree                             *fTestVolumeTree; ///< test volume tree
-    sim::TestVolume                   *fTestVolume;  ///< test volume object
+    std::shared_ptr<sim::TestVolume>   fTestVolume; ///< test volume pointer
     std::string                        fTVType; ///< test volume type
     bool                               fTestVolumeOnOff; ///< test volume on/off
     bool                               fTVCoincidence; ///< test volume coincidence bool

@@ -60,8 +60,8 @@
 
 int main(int argc, char *argv[])
 {
-
-  reco::FileManager *fm = new reco::FileManager();
+  auto fm = std::make_shared<reco::FileManager>();
+  //  reco::FileManager *fm = new reco::FileManager();
   namespace po = boost::program_options;
   po::options_description desc("\ncrmt Options.\n\nExample generation:\nTo generate a_file.root with 10000 events:\n  bin/crmt --generate a_file.root --num-events 10000\nTo display the true event display for file output/a_file.root event 53:\n  bin/crmt --display output/a_file.root --true --event-id 53\nExample reconstruction:\nTo reconstruct a_file.root:\n  bin/crmt -r output/a_file.root\nTo view reconstructed event display for a_file.root event 53:\n  bin/crmt -d output/recodata.root -R -e 53\n\nList of options");
   desc.add_options()
@@ -102,7 +102,8 @@ int main(int argc, char *argv[])
     nevents = fm->get_n_events();
     auto gap = fm->get_gap();
     fm->load_output_data("output/recodata.root");
-    reco::Detector *dd = new reco::Detector(gap);
+    //    reco::Detector *dd = new reco::Detector(gap);
+    auto dd = std::make_shared<reco::Detector>(gap);
     bool good     = false;
     int  good_cnt = 0;
 

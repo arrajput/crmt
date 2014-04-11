@@ -187,7 +187,7 @@ namespace sim {
     if ( fTestVolumeOnOff ) {
       fTVType = type;
       if ( type == "box" ) {
-	fTestVolume = new sim::TestVolume(type,length,width,height);
+	fTestVolume = std::make_shared<sim::TestVolume>(type,length,width,height);
 	fTVRadius   = 0;
 	fTVLength   = length;
 	fTVWidth    = width;
@@ -198,7 +198,7 @@ namespace sim {
 	fTVLength = 0;
 	fTVWidth  = 0;
 	fTVHeight = 0;
-	fTestVolume = new sim::TestVolume(type,radius);
+	fTestVolume = std::make_shared<sim::TestVolume>(type,radius);
       }
       else { 
 	std::cout << "WARNING: Bad test volume shape definition." << std::endl;
@@ -261,11 +261,11 @@ namespace sim {
     InitCoupleMap();
     InitFiberPixelPinPairs();
     gRandom->SetSeed(0);
-
-    fMod0 = new sim::Module(0,fGap);
-    fMod1 = new sim::Module(1,fGap);
-    fMod2 = new sim::Module(2,fGap);
-    fMod3 = new sim::Module(3,fGap);
+    
+    fMod0 = std::make_shared<sim::Module>(0,fGap);
+    fMod1 = std::make_shared<sim::Module>(1,fGap);
+    fMod2 = std::make_shared<sim::Module>(2,fGap);
+    fMod3 = std::make_shared<sim::Module>(3,fGap);
 
     auto Mod0Loc = fMod0->GetMap(); // map<int,pair<double,double>>
     auto Mod1Loc = fMod1->GetMap(); // " "
