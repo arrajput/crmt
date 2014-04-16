@@ -7,13 +7,12 @@
 #include "Track.h"
 
 namespace reco {
-
-  Track::Track()
-  {
-    fid         = 0;
-    fHasOneEach = false;
-  }
-
+  
+  Track::Track() :
+    fid(0),
+    fHasOneEach(false)
+  {}
+  
   Track::~Track() {}
 
   void Track::add_fiber(Fiber a)

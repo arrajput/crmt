@@ -8,10 +8,10 @@
 
 namespace reco {
 
-  Line::Line(bool isXZ){
-    fisXZ = isXZ;
-  }
-
+  Line::Line(bool isXZ) :
+    fisXZ(isXZ)
+  {}
+  
   Line::~Line(){}
 
   bool Line::do_track_reco(std::vector<reco::Track> tracks_top,std::vector<reco::Track> tracks_bot,double& gap){

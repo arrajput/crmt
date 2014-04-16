@@ -7,12 +7,13 @@
 #include "Detector.h"
 
 namespace reco {
-
-  Detector::Detector(double gap){
-    fGap = gap;
+  
+  Detector::Detector(double gap) :
+    fGap(gap)
+  {
     init_modules();
   }
-
+  
   Detector::~Detector(){}
 
   void Detector::init_modules() {

@@ -7,17 +7,19 @@
 #include "Viewer.h"
 
 namespace reco {
-
+  
   Viewer::Viewer(double gap,
 		 std::pair<std::pair<double,double>,std::pair<double,double> > sandy,
 		 std::pair<std::pair<std::vector<double>,std::vector<double> >
-		 ,std::pair<std::vector<double>,std::vector<double> > > hitpts){ //can't pass sandy was reference because its the return of another function
-    fGap = gap;
-    SandY = sandy;
-    fHitPoints = hitpts;
+		 ,std::pair<std::vector<double>,std::vector<double> > > hitpts) :
+    fGap(gap),
+    SandY(sandy),
+    fHitPoints(hitpts) 
+  {
+    //can't pass sandy was reference because its the return of another function
   }
-
-
+  
+  
   Viewer::~Viewer(){}
 
 

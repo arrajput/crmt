@@ -8,13 +8,12 @@
 
 namespace reco {
 
-  Fiber::Fiber()
-  {
-    fid = 0;
-    fx  = 0;
-    fy  = 0;
-  }
-
+  Fiber::Fiber() :
+    fid(0),
+    fx(0),
+    fy(0)
+  {}
+  
   Fiber::~Fiber() {}
 
 

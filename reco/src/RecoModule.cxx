@@ -7,14 +7,14 @@
 #include "RecoModule.h"
 
 namespace reco {
-
-  RecoModule::RecoModule() {
-    fGoodTrackIndex = -1;
-  }
-
-  RecoModule::RecoModule(int id, double gap) {
-    fGoodTrackIndex = -1;
-
+  
+  RecoModule::RecoModule() :
+    fGoodTrackIndex(-1)
+  {}
+  
+  RecoModule::RecoModule(int id, double gap) :
+    fGoodTrackIndex(-1)
+  {
     fId = id;
     if(id <= 1)
       fGap = gap;
