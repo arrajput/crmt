@@ -40,10 +40,11 @@ namespace sim {
     TMultiGraph      *fTMGXZ; ///< contains points for xz plane
     TMultiGraph      *fTMGYZ; ///< contains points for yz plane
     bool              fTVChecker; ///< checks for a test volume
-    TEllipse         *fEllipseXZ; ///< ellipse object to draw sphere projection xz
-    TEllipse         *fEllipseYZ; ///< ellipse object to draw sphere projection yz
-    TBox             *fBoxXZ; ///< box object to draw box projection xz
-    TBox             *fBoxYZ; ///< box object to draw box projection yz
+
+    std::shared_ptr<TBox>     fBoxXZ;
+    std::shared_ptr<TBox>     fBoxYZ;
+    std::shared_ptr<TEllipse> fEllipseXZ;
+    std::shared_ptr<TEllipse> fEllipseYZ;
 
   public:
 

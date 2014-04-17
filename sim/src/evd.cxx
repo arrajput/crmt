@@ -96,15 +96,15 @@ namespace sim {
     if ( fTVOn ) {
       fTVChecker = true;  
       if ( fTVRadius != 0 ) {
-	fEllipseXZ = new TEllipse(fTVCenter[0],fTVCenter[2],fTVRadius,fTVRadius);
-	fEllipseYZ = new TEllipse(fTVCenter[1],fTVCenter[2],fTVRadius,fTVRadius);
+	fEllipseXZ = std::make_shared<TEllipse>(fTVCenter[0],fTVCenter[2],fTVRadius,fTVRadius);
+	fEllipseYZ = std::make_shared<TEllipse>(fTVCenter[1],fTVCenter[2],fTVRadius,fTVRadius);
 	fEllipseXZ->SetFillColor(kBlack);
 	fEllipseYZ->SetFillColor(kBlack);
       }
       else if ( fTVLength != 0 ) {
-	fBoxXZ = new TBox(fTVCenter[0]-fTVLength/2.,fTVCenter[2]-fTVHeight/2.,
+	fBoxXZ = std::make_shared<TBox>(fTVCenter[0]-fTVLength/2.,fTVCenter[2]-fTVHeight/2.,
 			  fTVCenter[0]+fTVLength/2.,fTVCenter[2]+fTVHeight/2.);
-	fBoxYZ = new TBox(fTVCenter[1]-fTVWidth/2.,fTVCenter[2]-fTVHeight/2.,
+	fBoxYZ = std::make_shared<TBox>(fTVCenter[1]-fTVWidth/2.,fTVCenter[2]-fTVHeight/2.,
 			  fTVCenter[1]+fTVWidth/2.,fTVCenter[2]+fTVHeight/2.);
 	fBoxXZ->SetFillColor(kBlack);
 	fBoxYZ->SetFillColor(kBlack);
