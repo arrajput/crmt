@@ -103,9 +103,9 @@ namespace sim {
       }
       else if ( fTVLength != 0 ) {
 	fBoxXZ = std::make_shared<TBox>(fTVCenter[0]-fTVLength/2.,fTVCenter[2]-fTVHeight/2.,
-			  fTVCenter[0]+fTVLength/2.,fTVCenter[2]+fTVHeight/2.);
+					fTVCenter[0]+fTVLength/2.,fTVCenter[2]+fTVHeight/2.);
 	fBoxYZ = std::make_shared<TBox>(fTVCenter[1]-fTVWidth/2.,fTVCenter[2]-fTVHeight/2.,
-			  fTVCenter[1]+fTVWidth/2.,fTVCenter[2]+fTVHeight/2.);
+					fTVCenter[1]+fTVWidth/2.,fTVCenter[2]+fTVHeight/2.);
 	fBoxXZ->SetFillColor(kBlack);
 	fBoxYZ->SetFillColor(kBlack);
       }
