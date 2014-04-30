@@ -1,0 +1,14 @@
+crmt is the MUTE detector
+simulation and reconstruction
+software package
+
+== BUILDING & RUNNING ==
+$ export CRMT_DIR=$PWD
+$ mkdir build
+$ cd build
+$ cmake -DROOT_HOME=$ROOTSYS $CRMT_DIR
+$ make
+$ cd $CRMT_DIR
+$ bin/crmt
+
+options will be displayed.

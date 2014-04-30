@@ -1,0 +1,7 @@
+1. Write code to pull hit pins from DAQ SQL table
+   and store in a ROOT file
+2. Setup code in reco::FileManager to be able to
+   read hit pins from above described ROOT file
+   -- right now it only reads simulation form.
+      (make an option to reconstruct DAQ file
+      or simulation file)
