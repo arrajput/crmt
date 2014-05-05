@@ -75,6 +75,16 @@ namespace sim {
     }
   }  
   
+  void Module::SetGap(const double& gap)
+  {
+    fGap = gap;
+  }
+
+  void Module::SetType(const unsigned int& type)
+  {
+    fModuleType = type;
+  }
+
   Module::~Module() {}
  
 }

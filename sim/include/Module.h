@@ -39,6 +39,9 @@ namespace sim {
     /// Virtual destructor
     virtual ~Module();
     
+    void SetType(const unsigned int& type);
+    void SetGap(const double& gap);
+
     const std::map<int, std::pair<double,double> >& GetMap()         const;
     unsigned int                                    GetModuleType()  const;
     double                                          GetScintLength() const;
