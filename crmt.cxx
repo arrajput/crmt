@@ -11,7 +11,7 @@
  * crmt is a simulation and reconstruction package for the *
  * UTuT detector at UT Austin. <BR>
  * The package is compiled with CMake <BR>
- * The package is dependent on ROOT (http://root.cern.ch/) and Boost libraries <BR>
+ * The package is dependent on ROOT (http://root.cern.ch/) and Boost libraries, as well as the C++ STL Libraries <BR>
  * Tested versions of CMake, v2.8.xx <BR>
  * Tested versions of ROOT, v5-34-10 and later (as of 01/2014) <BR>
  * Tested versions of Boost, v1.55 <BR>
@@ -36,8 +36,7 @@
  * <BR>
  * === Tested Compilers === <BR>
  * * LLVM/Clang 3.3 on OS X <BR>
- * * LLVM/Clang 3.2 on Ubuntu <BR>
- * * GCC g++ 4.8.1 on Ubuntu <BR>
+ * * GCC g++ 4.8.2 on CentOS 5.10 <BR>
  *
  */
 
