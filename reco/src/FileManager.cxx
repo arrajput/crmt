@@ -22,52 +22,124 @@ namespace reco {
     return ss.str();
   }
 
-  std::map<int, std::vector<int> > FileManager::get_raw_data(int event){
+  std::map<int, std::vector<int> > FileManager::get_raw_data(const int event, const bool isData) {
+
     fRawEventData.clear();
 
-    //bool coincidence;
-    bool tMod0[32];
-    bool tMod1[32];
-    bool tMod2[32];
-    bool tMod3[32];
+    if ( isData ) {
+      std::vector<int>* HitPinsTop0 = 0;
+      std::vector<int>* HitPinsBot0 = 0;
+      std::vector<int>* HitPinsTop1 = 0;
+      std::vector<int>* HitPinsBot1 = 0;
+      std::vector<int>* HitPinsTop2 = 0;
+      std::vector<int>* HitPinsBot2 = 0;
+      std::vector<int>* HitPinsTop3 = 0;
+      std::vector<int>* HitPinsBot3 = 0;
+
+      fMod0Tree->SetBranchAddress("HitPinsTop0",&HitPinsTop0);
+      fMod0Tree->SetBranchAddress("HitPinsBot0",&HitPinsBot0);
+
+      fMod1Tree->SetBranchAddress("HitPinsTop1",&HitPinsTop1);
+      fMod1Tree->SetBranchAddress("HitPinsBot1",&HitPinsBot1);
+
+      fMod2Tree->SetBranchAddress("HitPinsTop2",&HitPinsTop2);
+      fMod2Tree->SetBranchAddress("HitPinsBot2",&HitPinsBot2);
+
+      fMod3Tree->SetBranchAddress("HitPinsTop3",&HitPinsTop3);
+      fMod3Tree->SetBranchAddress("HitPinsBot3",&HitPinsBot3);
+
+      TBranch *b_HitPinsTop0 = fMod0Tree->GetBranch("HitPinsTop0");
+      TBranch *b_HitPinsTop1 = fMod1Tree->GetBranch("HitPinsTop1");
+      TBranch *b_HitPinsTop2 = fMod2Tree->GetBranch("HitPinsTop2");
+      TBranch *b_HitPinsTop3 = fMod3Tree->GetBranch("HitPinsTop3");
+
+      TBranch *b_HitPinsBot0 = fMod0Tree->GetBranch("HitPinsBot0");
+      TBranch *b_HitPinsBot1 = fMod1Tree->GetBranch("HitPinsBot1");
+      TBranch *b_HitPinsBot2 = fMod2Tree->GetBranch("HitPinsBot2");
+      TBranch *b_HitPinsBot3 = fMod3Tree->GetBranch("HitPinsBot3");
+      
+      b_HitPinsTop0->GetEvent(event);
+      b_HitPinsTop1->GetEvent(event);
+      b_HitPinsTop2->GetEvent(event);
+      b_HitPinsTop3->GetEvent(event);
+
+      b_HitPinsBot0->GetEvent(event);
+      b_HitPinsBot1->GetEvent(event);
+      b_HitPinsBot2->GetEvent(event);
+      b_HitPinsBot3->GetEvent(event);
+
+      for ( auto const hit : *HitPinsTop0 )
+	fRawEventData[0].push_back(hit);
+      for ( auto const hit : *HitPinsBot0 )
+	fRawEventData[0].push_back(hit);
+      for ( auto const hit : *HitPinsTop1 )
+	fRawEventData[1].push_back(hit);
+      for ( auto const hit : *HitPinsBot1 )
+	fRawEventData[1].push_back(hit);
+      for ( auto const hit : *HitPinsTop2 )
+	fRawEventData[2].push_back(hit);
+      for ( auto const hit : *HitPinsBot2 )
+	fRawEventData[2].push_back(hit);
+      for ( auto const hit : *HitPinsTop3 )
+	fRawEventData[3].push_back(hit);
+      for ( auto const hit : *HitPinsBot3 )
+	fRawEventData[3].push_back(hit);
+      
+    } else {
+      //bool coincidence;
+      bool tMod0[32];
+      bool tMod1[32];
+      bool tMod2[32];
+      bool tMod3[32];
   
-    fRawDataTree->SetBranchAddress("PinsArray0",tMod0);
-    fRawDataTree->SetBranchAddress("PinsArray1",tMod1);
-    fRawDataTree->SetBranchAddress("PinsArray2",tMod2);
-    fRawDataTree->SetBranchAddress("PinsArray3",tMod3);
-    //fRawDataTree->SetBranchAddress("Coincidence",&coincidence);
-    TBranch *b_PinsArray0  = fRawDataTree->GetBranch("PinsArray0");
-    TBranch *b_PinsArray1  = fRawDataTree->GetBranch("PinsArray1");
-    TBranch *b_PinsArray2  = fRawDataTree->GetBranch("PinsArray2");
-    TBranch *b_PinsArray3  = fRawDataTree->GetBranch("PinsArray3");
-    //TBranch *b_Coincidence = fRawDataTree->GetBranch("Coincidence");
+      fRawDataTree->SetBranchAddress("PinsArray0",tMod0);
+      fRawDataTree->SetBranchAddress("PinsArray1",tMod1);
+      fRawDataTree->SetBranchAddress("PinsArray2",tMod2);
+      fRawDataTree->SetBranchAddress("PinsArray3",tMod3);
+      //fRawDataTree->SetBranchAddress("Coincidence",&coincidence);
+      TBranch *b_PinsArray0  = fRawDataTree->GetBranch("PinsArray0");
+      TBranch *b_PinsArray1  = fRawDataTree->GetBranch("PinsArray1");
+      TBranch *b_PinsArray2  = fRawDataTree->GetBranch("PinsArray2");
+      TBranch *b_PinsArray3  = fRawDataTree->GetBranch("PinsArray3");
+      //TBranch *b_Coincidence = fRawDataTree->GetBranch("Coincidence");
   
+      b_PinsArray0->GetEvent(event);   
+      b_PinsArray1->GetEvent(event);
+      b_PinsArray2->GetEvent(event);
+      b_PinsArray3->GetEvent(event);
+      //b_Coincidence->GetEvent(event);
   
-  
-    b_PinsArray0->GetEvent(event);   
-    b_PinsArray1->GetEvent(event);
-    b_PinsArray2->GetEvent(event);
-    b_PinsArray3->GetEvent(event);
-    //b_Coincidence->GetEvent(event);
-  
-    for (int xx = 0; xx < 32; ++xx){
-      if (tMod0[xx]) fRawEventData[0].push_back(xx);
-      if (tMod1[xx]) fRawEventData[1].push_back(xx);
-      if (tMod2[xx]) fRawEventData[2].push_back(xx);
-      if (tMod3[xx]) fRawEventData[3].push_back(xx);  
+      for (int xx = 0; xx < 32; ++xx){
+	if (tMod0[xx]) fRawEventData[0].push_back(xx);
+	if (tMod1[xx]) fRawEventData[1].push_back(xx);
+	if (tMod2[xx]) fRawEventData[2].push_back(xx);
+	if (tMod3[xx]) fRawEventData[3].push_back(xx);  
+      }
     }
- 
     return fRawEventData;
   }
 
-  void FileManager::set_raw_data_name(std::string name){
+  void FileManager::set_raw_data_name(std::string name, const bool isData){
   
     fRawDataFileName = name;
     fRawData        = new TFile(fRawDataFileName.c_str(),"READ");
-    fRawDataTree    = (TTree*)fRawData->Get("SimulationTree");   
+    std::cout << "setting up TTree*'s" << std::endl;
+    if ( isData ) {
+      fMod0Tree = (TTree*)fRawData->Get("Mod0Tree");
+      fMod1Tree = (TTree*)fRawData->Get("Mod1Tree");
+      fMod2Tree = (TTree*)fRawData->Get("Mod2Tree");
+      fMod3Tree = (TTree*)fRawData->Get("Mod3Tree");
+      fNRawEvents = fMod1Tree->GetEntries();
+
+    } else {
+      fRawDataTree = (TTree*)fRawData->Get("SimulationTree");
+      fNRawEvents     = fRawDataTree->GetEntries();
+    }
     fTestVolumeTree = (TTree*)fRawData->Get("TestVolumeTree");   
-    fNRawEvents     = fRawDataTree->GetEntries();
+    std::cout << "set up tvtree" << std::endl;
+    std::cout << "trying set_gap_sim()..." << std::endl;
     set_gap_sim();
+    std::cout << "finished setting up TTree*'s" << std::endl;
   }
 
   void FileManager::load_output_data(std::string file_name)

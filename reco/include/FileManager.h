@@ -34,12 +34,17 @@ namespace reco {
     //Do Reco
     TFile *fReconData;
     TFile *fRawData;
-  
+    
   
     std::string fRawDataFileName;  
     TTree *fRawDataTree;
     TTree *fTestVolumeTree;
-  
+
+    TTree *fMod0Tree;
+    TTree *fMod1Tree;
+    TTree *fMod2Tree;
+    TTree *fMod3Tree;
+
     //TTree *fEventTree;
     TTree *fEventTreeXZ;
     TTree *fEventTreeYZ;
@@ -97,14 +102,15 @@ namespace reco {
     int fSimID;
   
   public:
+
     FileManager();
     virtual ~FileManager();
   
     //Do Reco
     std::string to_string(char let, int id);
-    std::map<int, std::vector<int> > get_raw_data(int event);
+    std::map<int, std::vector<int> > get_raw_data(const int event, const bool isData);
     void load_output_data(std::string file_name);
-    void set_raw_data_name(std::string name);
+    void set_raw_data_name(std::string name, const bool isData);
     void fill_event_tree(const std::pair<reco::Line,reco::Line>& lines,int simid);
     void finish();
     void cleanup();
