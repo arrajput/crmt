@@ -108,9 +108,9 @@ namespace reco {
   
     //Do Reco
     std::string to_string(char let, int id);
-    std::map<int, std::vector<int> > get_raw_data(const int event, const bool isData);
+    std::map<int, std::vector<int> > get_raw_data(const int event);
     void load_output_data(std::string file_name);
-    void set_raw_data_name(std::string name, const bool isData);
+    void set_raw_data_name(std::string name);
     void fill_event_tree(const std::pair<reco::Line,reco::Line>& lines,int simid);
     void finish();
     void cleanup();

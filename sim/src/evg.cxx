@@ -459,7 +459,16 @@ namespace sim {
 	fPinsMod3.push_back(hit);
       for ( auto const& hit : fHitPinsBot3 )
 	fPinsMod3.push_back(hit);
-      
+
+      for ( auto const& entry : fPinsMod0 )
+	fPinsArray0[entry] = true;
+      for ( auto const& entry : fPinsMod1 )
+	fPinsArray1[entry] = true;
+      for ( auto const& entry : fPinsMod2 )
+	fPinsArray2[entry] = true;
+      for ( auto const& entry : fPinsMod3 )
+	fPinsArray3[entry] = true;
+      /*
       for ( auto const& entry : fPinsMod0 )
 	if ( entry != 0 )
 	  fPinsArray0[entry] = true;
@@ -472,6 +481,7 @@ namespace sim {
       for ( auto const& entry : fPinsMod3 )
 	if ( entry != 0 )
 	  fPinsArray3[entry] = true;
+      */
 
       fTreeMod0->Fill();
       fTreeMod1->Fill();

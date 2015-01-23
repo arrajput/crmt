@@ -74,9 +74,7 @@ int main(int argc, char *argv[])
     ("num-events,n",po::value<int>(),"set number of events")
     ("event-id,e",po::value<int>(),"event ID for display")
     ("reco,r",po::value<std::string>(),"reconstruct data file")
-    ("reco-display,R","reconstructed event display flag")
-    ("mc,m","flag for reconstructing Monte Carlo")
-    ("data,a","flag for reconstructing data");
+    ("reco-display,R","reconstructed event display flag");
   
   po::variables_map vm;
   po::store(po::parse_command_line(argc,argv,desc),vm);
@@ -99,16 +97,8 @@ int main(int argc, char *argv[])
   
   else if ( vm.count("reco") ) {
 
-    bool isData = false;
-    
-    if ( !vm.count("mc") && !vm.count("data") ) {
-      std::cout << desc << std::endl;
-      return 0;
-    }
-    if ( vm.count("data") ) isData = true;
-    
     int nevents;
-    fm->set_raw_data_name(vm["reco"].as<std::string>(),isData);
+    fm->set_raw_data_name(vm["reco"].as<std::string>());
     nevents = fm->get_n_events();
     auto gap = fm->get_gap();
     fm->load_output_data("output/recodata.root");
@@ -118,7 +108,7 @@ int main(int argc, char *argv[])
     int  good_cnt = 0;
 
     for ( int i = 0; i < nevents; ++i ) {
-      auto raw_data   = fm->get_raw_data(i,isData);
+      auto raw_data   = fm->get_raw_data(i);
       auto recon_data = dd->recon_event(raw_data,good);
       if ( good ) {
 	fm->fill_event_tree(recon_data,i);
