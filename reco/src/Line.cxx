@@ -14,7 +14,8 @@ namespace reco {
   
   Line::~Line(){}
 
-  bool Line::do_track_reco(std::vector<reco::Track> tracks_top,std::vector<reco::Track> tracks_bot,double& gap){
+  bool Line::do_track_reco(const std::vector<reco::Track>& tracks_top,
+			   const std::vector<reco::Track>& tracks_bot, double gap) {
   
     fGap = gap;
     fTracks = std::make_pair(tracks_top,tracks_bot);
@@ -63,10 +64,9 @@ namespace reco {
 	//remove bottom points before new fill
 	for(int k=bot_cnt;k <= top_cnt+1;--k)
 	  fTG->RemovePoint(k);
-      
       }
+      delete fTG; // free up memory!
     }
-
   }
 
   bool Line::choose_best(){
@@ -117,12 +117,13 @@ namespace reco {
   
   
     fCosAngle = cos(fAngle);
-
+    
     return true;
   
   }
 
-  void Line::clear_lines(){  
+  void Line::clear_lines(){
+    while (!fFits.empty()) delete fFits.back(), fFits.pop_back(); // free up memory!
     fFits.clear();
     fFittedTrack.clear();
     fSlope    = 0;

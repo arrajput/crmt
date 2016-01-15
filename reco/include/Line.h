@@ -61,7 +61,8 @@ namespace reco {
   public:
     Line(bool isXZ);
     virtual ~Line();
-    bool do_track_reco(std::vector<reco::Track> tracks_top,std::vector<reco::Track> tracks_bot,double& gap);  
+    bool do_track_reco(const std::vector<reco::Track>& tracks_top,
+		       const std::vector<reco::Track>& tracks_bot, double gap);  
     void fit_tracks();
     void clear_lines();
     bool choose_best();
